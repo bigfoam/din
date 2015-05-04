@@ -2,16 +2,18 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Dinneract | Home</title>
+	<title>Dinneract | Dashboard</title>
 	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<link href='css/MetroJs.css' rel='stylesheet' type='text/css' />
-	<link href='css/style.css' rel='stylesheet' type='text/css' />
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	<link href='css/font-awesome-4.3.0/css/font-awesome.min.css' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans"/>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome-4.3.0/css/font-awesome.min.css"/>
 	
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tagsinput.min.js"></script>
+
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
 	
@@ -24,7 +26,7 @@
 		<div class="logo">
 			<a href="index.html"><img src="images/comp_logo.png"/></a>
 		</div>
-		<div class="top-nav">
+		<div class="head-nav">
 			<ul>
 				<li class="active"><a href="index.html#home" class="scroll">Home</a></li>
 				<li><a class="scroll">Sign out</a></li>
@@ -38,7 +40,7 @@
 	
 	<!---start-image-banner---->
 	<div class="dash">
-		<div class="nav">
+		<div class="navbar">
 			<ul class="menu">
 				<li class="fixed">
 					<a>
@@ -79,7 +81,448 @@
 
 		</div>
 		<div class="content">
-
+			
+			<form id="postForm">
+				<div role="tabpanel">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist" id="postTab">
+						<li role="presentation" class="active">
+							<a href="#post_basic" aria-controls="post_basic" title="postTab" role="tab" data-toggle="tab">Basic Info</a>
+						</li>
+						<li role="presentation">
+							<a href="#post_steps" aria-controls="post_steps" title="postTab" role="tab" data-toggle="tab">Cooking Steps</a>
+						</li>
+						<li role="presentation">
+							<a href="#post_elements" aria-controls="post_elements" title="postTab" role="tab" data-toggle="tab">Ingredient List</a>
+						</li>
+						<li role="presentation">
+							<a href="#post_catags" aria-controls="post_catags" title="postTab" role="tab" data-toggle="tab">Categories &amp; tags</a>
+						</li>
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active form-horizontal col-sm-11" id="post_basic">
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Title</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="title" placeholder="What's the name of this special food ?">
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Photo</label>
+							    <div class="col-sm-7">
+							    	<button>Photo upload</button>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Credit to (optional)</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="creditTo" placeholder="Credit to someone or a association">
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Credit URL (optional)</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="creditURL" placeholder="The web link to credit to">
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Original URL (optional)</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="url" placeholder="The web link that the post is copied from">
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Serving (optional)</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="serving" placeholder="e.g. 8 people, 4 slides, 2 cups etc.">
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Brief Intro (optional)</label>
+							    <div class="col-sm-7">
+							    	<textarea class="form-control" name="intro" placeholder="Tell customers about this food, why you like it, how special it is."></textarea>
+							    </div>
+							</div>
+							<br/>
+							<div class="form-group" style="text-align: right;">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<a class="btn btn-primary" href="#post_steps" title="postTab" data-toggle="tab">Next</a>
+							    </div>
+							</div>
+						</div>
+						
+						<div role="tabpanel" class="tab-pane fade form-horizontal col-sm-11" id="post_steps">
+							<div class="form-group">
+							    <div class="col-sm-11" style="text-align: center; margin-bottom: 10px;">
+							    	<h1>Cooking Time</h1>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Prepare (Optional)</label>
+							    <div class="col-sm-5">
+							    	<input type="text" class="form-control" name="prepare_amount" placeholder="e.g. 10">
+							    </div>
+							    <div class="col-sm-2">
+									<select class="form-control" name="prepare_unit">
+										<option>second(s)</option>
+										<option selected>minute(s)</option>
+										<option>hour(s)</option>
+										<option>day(s)</option>
+									</select>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Inactive (Optional)</label>
+							    <div class="col-sm-5">
+							    	<input type="text" class="form-control" name="inactive_amount" placeholder="e.g. 20">
+							    </div>
+							    <div class="col-sm-2">
+									<select class="form-control" name="inactive_unit">
+										<option>second(s)</option>
+										<option selected>minute(s)</option>
+										<option>hour(s)</option>
+										<option>day(s)</option>
+									</select>
+							    </div>
+							</div>
+							<div class="form-group">
+							     <label class="col-sm-3 control-label">Cook (Optional)</label>
+							    <div class="col-sm-5">
+							    	<input type="text" class="form-control" name="cook_amount" placeholder="e.g. 30">
+							    </div>
+							    <div class="col-sm-2">
+									<select class="form-control" name="cook_unit">
+										<option>second(s)</option>
+										<option selected>minute(s)</option>
+										<option>hour(s)</option>
+										<option>day(s)</option>
+									</select>
+							    </div>
+							</div>
+							<br/>
+							<div class="form-group">
+							    <div class="col-sm-11" style="text-align: center; margin-bottom: 10px;">
+							    	<h1>Cooking Steps</h1>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">
+								    <span class="fa-stack">
+										<i class="fa fa-circle fa-stack-2x step"></i>
+										<strong class="fa-stack-1x">1</strong>
+									</span>
+								</label>
+							    <div class="col-sm-7">
+							    	<textarea class="form-control" name="step[]" placeholder="Add a cooking step, e.g. Mix the chicken and spices..."></textarea>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">
+								    <span class="fa-stack">
+										<i class="fa fa-circle fa-stack-2x step"></i>
+										<strong class="fa-stack-1x">2</strong>
+									</span>
+								</label>
+							    <div class="col-sm-7">
+							    	<textarea class="form-control" name="step[]" placeholder="Add a cooking step"></textarea>
+							    </div>
+							    <div class="col-sm-1">
+							    	<i class="fa fa-times remove" onclick="deletePostStep(2)"></i>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">
+								    <span class="fa-stack">
+										<i class="fa fa-circle fa-stack-2x step"></i>
+										<strong class="fa-stack-1x">3</strong>
+									</span>
+								</label>
+							    <div class="col-sm-7">
+							    	<textarea class="form-control" name="step[]" placeholder="Add a cooking step"></textarea>
+							    </div>
+							    <div class="col-sm-1">
+							    	<i class="fa fa-times remove" onclick="deletePostStep(3)"></i>
+							    </div>
+							</div>
+							<div class="form-group" style="text-align: right;">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<a class="add" id="addPostStep">Add Another Step</a>
+							    </div>
+							</div>
+							<br/>
+							<div class="form-group" style="text-align: right;">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<a class="btn btn-primary" href="#post_basic" title="postTab" data-toggle="tab">Previous</a>&nbsp;
+							    	<a class="btn btn-primary" href="#post_elements" title="postTab" data-toggle="tab">Next</a>
+							    </div>
+							</div>
+						</div>
+						
+						<div role="tabpanel" class="tab-pane fade form-horizontal col-sm-11" id="post_elements">
+							<div class="form-group">
+							    <div class="col-sm-11" style="text-align: center; margin-bottom: 10px;">
+							    	<h1>List of Ingredients</h1>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-2 control-label">
+								    <span class="fa-stack">
+										<i class="fa fa-circle fa-stack-2x step"></i>
+										<strong class="fa-stack-1x">1</strong>
+									</span>
+								</label>
+							    <div class="col-sm-1">
+							    	<input type="text" class="form-control" name="element_amount[]" placeholder="e.g. 2">
+							    </div>
+							    <div class="col-sm-1">
+							    	<select class="form-control" name="element_unit[]">
+							    		<option value="">unit</option>
+							    		<option selected>lb</option>
+							    		<option>cup</option>
+							    		<option>tbsp.</option>
+							    		<option>tsp.</option>
+							    		<option>bottle</option>
+							    	</select>
+							    </div>
+							    <div class="col-sm-4">
+							    	<input type="text" class="form-control" name="element_name[]" placeholder="e.g. chick breast">
+							    </div>
+							    <div class="col-sm-2">
+							    	<input type="text" class="form-control" name="element_addi[]" placeholder="e.g. chopped">
+							    </div>
+							    <br/><br/>
+							    <div class="col-sm-2"></div>
+							    <div class="col-sm-4">
+							    	<a class="btn bind">Bind to a product</a> (Optional)
+							    </div>
+							    <div class="col-sm-4"></div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">
+								    <span class="fa-stack">
+										<i class="fa fa-circle fa-stack-2x step"></i>
+										<strong class="fa-stack-1x">2</strong>
+									</span>
+								</label>
+							    <div class="col-sm-1">
+							    	<input type="text" class="form-control" name="element_amount[]" placeholder="amount">
+							    </div>
+							    <div class="col-sm-1">
+							    	<select class="form-control" name="element_unit[]">
+							    		<option value="">unit</option>
+							    		<option>lb</option>
+							    		<option>cup</option>
+							    		<option>tbsp.</option>
+							    		<option>tsp.</option>
+							    		<option>bottle</option>
+							    	</select>
+							    </div>
+							    <div class="col-sm-4">
+							    	<input type="text" class="form-control" name="element_name[]" placeholder="ingredient name">
+							    </div>
+							    <div class="col-sm-2">
+							    	<input type="text" class="form-control" name="element_addi[]" placeholder="additional info">
+							    </div>
+							    <div class="col-sm-1">
+							    	<i class="fa fa-times remove" onclick="deletePostElement(2)"></i>
+							    </div>
+							    <br/><br/>
+							    <div class="col-sm-2"></div>
+							    <div class="col-sm-4">
+							    	<a class="btn bind">Bind to a product</a> (Optional)
+							    </div>
+							    <div class="col-sm-4"></div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">
+								    <span class="fa-stack">
+										<i class="fa fa-circle fa-stack-2x step"></i>
+										<strong class="fa-stack-1x">3</strong>
+									</span>
+								</label>
+							    <div class="col-sm-1">
+							    	<input type="text" class="form-control" name="element_amount[]" placeholder="amount">
+							    </div>
+							    <div class="col-sm-1">
+							    	<select class="form-control" name="element_unit[]">
+							    		<option value="">unit</option>
+							    		<option>lb</option>
+							    		<option>cup</option>
+							    		<option>tbsp.</option>
+							    		<option>tsp.</option>
+							    		<option>bottle</option>
+							    	</select>
+							    </div>
+							    <div class="col-sm-4">
+							    	<input type="text" class="form-control" name="element_name[]" placeholder="ingredient name">
+							    </div>
+							    <div class="col-sm-2">
+							    	<input type="text" class="form-control" name="element_addi[]" placeholder="additional info">
+							    </div>
+							    <div class="col-sm-1">
+							    	<i class="fa fa-times remove" onclick="deletePostElement(3)"></i>
+							    </div>
+							    <br/><br/>
+							    <div class="col-sm-2"></div>
+							    <div class="col-sm-4">
+							    	<a class="btn bind">Bind to a product</a> (Optional)
+							    </div>
+							    <div class="col-sm-4"></div>
+							</div>
+							<div class="form-group" style="text-align: right;">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<a class="add" id="addPostElement">Add Another Ingredient</a>
+							    </div>
+							</div>
+							<br/>
+							<div class="form-group" style="text-align: right;">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<a class="btn btn-primary" href="#post_steps" title="postTab" data-toggle="tab">Previous</a>&nbsp;
+							    	<a class="btn btn-primary" href="#post_catags" title="postTab" data-toggle="tab">Next</a>
+							    </div>
+							</div>
+						</div>
+						
+						<div role="tabpanel" class="tab-pane fade form-horizontal col-sm-11" id="post_catags">
+							<div class="form-group">
+							    <div class="col-sm-11" style="text-align: center; margin-bottom: 10px;">
+							    	<h1>Categories</h1>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Dish Types</label>
+							    <div class="col-sm-6">
+							    	<select class="form-control" id="selectPostDish">
+							    		<option>Dessert</option>
+							    		<option>Entrees</option>
+							    		<option>Side dishes</option>
+							    		<option>Appetizers</option>
+							    		<option>Breakfast/Brunch</option>
+							    		<option>Vegetarian</option>
+							    		<option>Vegan</option>
+							    		<option>Beverages</option>
+							    		<option>Salads</option>
+										<option>Soup</option>
+									</select>
+							    </div>
+							    <div class="col-sm-1">
+							    	<a class="btn btn-primary" id="addPostDish">Add</a>
+							    </div>
+							    <br/><br/>
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-6">
+							    	<input class="form-control" name="dishTypes" id="postDishTypes" value="" />
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Occasions</label>
+							    <div class="col-sm-6">
+							    	<select class="form-control" id="selectPostOccasion">
+							    		<option>Christmas</option>
+							    		<option>Thanksgiving</option>
+							    		<option>New Year</option>
+							    		<option>Game Day</option>
+							    		<option>Halloween</option>
+							    		<option>Valentine's Day</option>
+							    		<option>Easter Day</option>
+							    		<option>Birthday</option>
+							    		<option>Wedding</option>
+										<option>Party</option>
+									</select>
+							    </div>
+							    <div class="col-sm-1">
+							    	<a class="btn btn-primary" id="addPostOccasion">Add</a>
+							    </div>
+							    <br/><br/>
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-6">
+							    	<input class="form-control" name="dishTypes" id="postOccasions" value="" />
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Specials</label>
+							    <div class="col-sm-6">
+							    	<select class="form-control" id="selectPostSpecial">
+							    		<option>Gluten-free</option>
+							    		<option>Dairy-free</option>
+							    		<option>Sugar-free</option>
+							    		<option>Nut-free</option>
+							    		<option>Low Fat</option>
+							    		<option>Low Calorie</option>
+							    		<option>Diabetes Friendly</option>
+							    		<option>Weight Loss</option>
+							    		<option>Halaal</option>
+									</select>
+							    </div>
+							    <div class="col-sm-1">
+							    	<a class="btn btn-primary" id="addPostSpecial">Add</a>
+							    </div>
+							    <br/><br/>
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-6">
+							    	<input class="form-control" name="dishTypes" id="postSpecials" value="" />
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Origins</label>
+							    <div class="col-sm-6">
+							    	<select class="form-control" >
+							    		<option value="">Dont't know</option>
+							    		<option>Fusion</option>
+							    		<option>British</option>
+							    		<option>Chinese</option>
+							    		<option>French</option>
+							    		<option>Germany</option>
+							    		<option>Indian</option>
+							    		<option>Irish</option>
+							    		<option>Italian</option>
+							    		<option>Japanese</option>
+							    		<option>Korean</option>
+							    		<option>Mexican</option>
+							    		<option>Middle East</option>
+							    		<option>Spanish</option>
+							    		<option>Russian</option>
+							    	</select>
+							    </div>
+							</div>
+							<br/>
+							<div class="form-group">
+							    <div class="col-sm-11" style="text-align: center; margin-bottom: 10px;">
+							    	<h1>Tags</h1>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-6">
+							    	<input class="form-control" name="tags" id="postTags" value="" />
+							    </div>
+							</div>
+							<div class="form-group">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-6">
+							    	<span>Note*: click, type tag words and click/tap again to add a new tag</span>
+							    </div>
+							</div>
+							<br/>
+							<div class="form-group" style="text-align: right;">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-6">
+							    	<a class="btn btn-primary" href="#post_elements" title="postTab" data-toggle="tab">Previous</a>&nbsp;
+							    	<button class="btn btn-success" type="submit">Submit</button>
+							    </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>	
+			
+					
 		</div>
 		<div class="clear"> </div>
 	</div>
@@ -140,12 +583,31 @@
 		<!---//End-wrap---->
 	</div>
 	<!---//End-footer----->
-	<div class="copy">
+	<div class="copy copy-dash">
 		<p>&copy; 2014-2015 <a href="index.html"> Dinneract</a></p>
 	</div>
 	
 	
-
+	<!-- Modal -->
+	<div id="elementSearch" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Product Search</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>search box</p>
+	      </div>
+	      <div class="modal-footer">
+	        <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+	        <a type="button" class="btn bind">Bind</a>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div>
+	<!-- End of Modal -->
+	
 	
 	<!-- Modal -->
 	<div id="terms" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -161,48 +623,157 @@
 
 	
 	<script type="text/javascript">
+		//global variables
+		var stepNum = 3,
+			elementNum = 3;
+	
 	
 		//loading modals
 		$("#privacy").load("privacy.inc"); 
 		$("#terms").load("terms.inc"); 
 		
 		
+		$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+			var target = $(e.target).attr("href");
+			var ulId = $(e.target).attr("title");
+			
+			$('#' + ulId + ' > li.active').removeClass('active');
+    		$('#' + ulId + ' > li > a[href=' + target + ']').parent().addClass('active');
+		})
+		
+		
 		$(document).ready(function() {
 			
-
-
+			$('#postTab a:first').tab('show');
+			//nav bar
 			$("#myPosts").click(function() {
-				
 				$(this).addClass("active");
       			$("li").not(this).removeClass("active");
 			});
-			
-			
 			$("#myElements").click(function() {
 				$(this).addClass("active");
       			$("li").not(this).removeClass("active");
 			});
-			
-			
 			$("#newPost").click(function() {
 				$(this).addClass("active");
       			$("li").not(this).removeClass("active");
 			});
-			
-			
 			$("#newElement").click(function() {
 				$(this).addClass("active");
-      			$("li").not(this).removeClass("active");
+				$("li").not(this).removeClass("active");
 			});
-			
-			
 			$("#profile").click(function() {
 				$(this).addClass("active");
       			$("li").not(this).removeClass("active");
 			});
-				
+			
+			//Post basic
+			
+			//Post steps
+			$("#addPostStep").click(function() {
+				addPostStep();
+			});
+			
+			//Post elements
+			$("#addPostElement").click(function() {
+				addPostElement();
+			});
+			
+			$("#post_elements a.bind").click(function() {
+				$('#elementSearch').modal("show");
+			});
+			
+			//Post categories & tags
+			$('#postDishTypes').tagsInput({
+				'interactive': false,
+   				'defaultText': '',
+   				'height':'40px',
+				'width':'100%'
+			});
+			$('#postOccasions').tagsInput({
+				'interactive': false,
+   				'defaultText': '',
+   				'height':'40px',
+				'width':'100%'
+			});
+			$('#postSpecials').tagsInput({
+				'interactive': false,
+   				'defaultText': '',
+   				'height':'40px',
+				'width':'100%'
+			});
+			$('#postTags').tagsInput({
+   				'defaultText':'add a tag',
+   				'height':'120px',
+				'width':'100%'
+			});
+			
+			$("#addPostDish").click(function() {
+				if ( !$('#postDishTypes').tagExist( $('#selectPostDish').val() ) ) {
+					$('#postDishTypes').addTag( $('#selectPostDish').val() );
+				}
+			});
+			
+			$("#addPostOccasion").click(function() {
+				if ( !$('#postOccasions').tagExist( $('#selectPostOccasion').val() ) ) {
+					$('#postOccasions').addTag( $('#selectPostOccasion').val() );
+				}
+			});
+			
+			$("#addPostSpecial").click(function() {
+				if ( !$('#postSpecials').tagExist( $('#selectPostSpecial').val() ) ) {
+					$('#postSpecials').addTag( $('#selectPostSpecial').val() );
+				}
+			});
 
 		});
+		
+		function addPostStep() {
+			//1st step is the 6th child
+			stepNum++;
+				
+			var newStep = "" + 
+				"<div class=\"form-group\">" + 
+					"<label class=\"col-sm-3 control-label\">" + 
+						"<span class=\"fa-stack\">" + 
+							"<i class=\"fa fa-circle fa-stack-2x step\"></i>" + 
+							"<strong class=\"fa-stack-1x\">" + stepNum + "</strong>" +
+						"</span>" + 
+					"</label>" +
+					"<div class=\"col-sm-7\">" + 
+						"<textarea class=\"form-control\" name=\"step[]\" placeholder=\"Add a cooking step\"></textarea>" +
+					"</div>" + 
+					"<div class=\"col-sm-1\">" +
+						"<i class=\"fa fa-times remove\" onclick=\"deletePostStep(" + stepNum + ")\"></i>" +
+					"</div>" +
+				"</div>";
+				
+			$("#post_steps > div.form-group:nth-child(" + (5+stepNum) + ")").after( newStep );
+		}
+		
+		function deletePostStep(order) {
+			//1st step is the 6th child
+			$("#post_steps div.form-group:nth-child(" + (6+order) + ")").remove();
+			stepNum--;
+			for(var i=order; i<=stepNum; i++) {
+				$("#post_steps > div.form-group:nth-child(" + (i+6) + ")").find("strong").html(i);
+				$("#post_steps > div.form-group:nth-child(" + (i+6) + ")").find("i.remove").attr("onclick", "deletePostStep("+i+")");
+			}
+		}
+		
+		function addPostElement() {
+			//1st element is the 2th child
+			elementNum++;
+				
+			var newElement = "" + 
+						"";
+
+		}
+		
+		function deletePostElement(order) {
+			//1st element is the 2th child
+
+		}
 	</script>
 </body>
 </html>
