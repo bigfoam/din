@@ -22,10 +22,22 @@ $roleImgs = array(
 	"Chef"		=> "http://res.cloudinary.com/dinneract/image/upload/v1430753846/chef_necqzd.jpg",
 );
 
-$roleMsgs = array(
+$roleMsgsLine1 = array(
 	"Foodie" 	=> "insiders to gain early access to Dinneract.",
 	"Merchant"	=> "business insiders to gain early access to Dinneract.",
 	"Chef"		=> "business insiders to gain early access to Dinneract.",
+);
+
+$roleMsgsLine2 = array(
+	"Foodie" 	=> "You will soon receive a special invitation to our app when we launch.",
+	"Merchant"	=> "You will soon receive a special invitation to our app and web portal when we launch.",
+	"Chef"		=> "You will soon receive a special invitation to our app and web portal when we launch.",
+);
+
+$roleMsgsLine3 = array(
+	"Foodie" 	=> " ",
+	"Merchant"	=> "We look forward to serving your business!",
+	"Chef"		=> "We look forward to serving your business!",
 );
 
 
@@ -91,19 +103,19 @@ $userMsg .= '
             <table class="mcnCaptionRightTextContentContainer" align="right" border="0" cellpadding="0" cellspacing="0" width="264" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
                 <tbody><tr>
                     <td valign="top" class="mcnTextContent" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">
-                        <span style="color: #606060;font-family: helvetica;font-size: 14px;line-height: 22.5px;">Dear Chef,</span>
+                        <span style="color: #606060;font-family: helvetica;font-size: 14px;line-height: 22.5px;">Dear '.$role.',</span>
                         <br style="color: #606060;line-height: 10px;">
                         <br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
 						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">Thank you for joining Dinneract!</span>
 						<br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
-						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">You are one of the top&nbsp;</span><strong style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">1,000</strong><span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">&nbsp;'.$roleMsgs[role].'</span>
+						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">You are one of the top&nbsp;</span><strong style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">1,000</strong><span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">&nbsp;'.$roleMsgsLine1[$role].'</span>
 						<br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
-						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">You will soon receive a special invitation to our app and web portal when we launch.</span>
+						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">'.$roleMsgsLine2[$role].'</span>
 						<br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
 						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">For questions and feebacks, contact us at</span>
 						<a href="mailto:dinneract2015@gmail.com" style="color: #6DC6DD;font-family: Helvetica;font-size: 15px;line-height: 22.5px;word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-weight: normal;text-decoration: underline;" target="_blank">dinneract2015@gmail.com</a>
 						<br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
-						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">We look forward to serving your business!</span>
+						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">'.$roleMsgsLine3[$role].'</span>
 						<br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
 						<br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
 						<span style="color: #606060;font-family: helvetica;font-size: 18px;line-height: 22.5px;"><strong>Dinneract Team</strong></span>
@@ -198,8 +210,10 @@ $userMsg .= '
 
 
 $subject = "Dinneract Subscription Confirmation";
-$headers = 'From: noreply@dinneract.com' . "\r\n" .
+$headers = 'From: subscribe@dinneract.com' . "\r\n" .
 	'Reply-To: dinneract2015@gmail.com' . "\r\n" .
+	'MIME-Version: 1.0' . "\r\n".
+   	'Content-type: text/html; charset=utf-8' . "\r\n".
     'X-Mailer: PHP/' . phpversion();
 
 $status = mail($userEmail, $subject, $userMsg, $headers);
