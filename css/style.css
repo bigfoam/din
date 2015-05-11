@@ -210,6 +210,26 @@ body{
 .logo img {
 	margin-top: 12px;
 }
+/*
+.singup {
+	padding: 10px 16px;
+	font-size: 19px;
+	line-height: 1.33;
+	border-radius: 4px;
+	color: #FFFFFF;
+	background-color: #F45D35;
+	border-color: #F45D35;
+	margin-top: 20px;
+	outline: 0;
+}
+
+.singup:hover {
+	color: #FFFFFF;
+	background-color: #DC5430;
+	border-color: #DC5430;
+	outline: 0;
+}
+*/	
 
 /*----//End-image-banner-----*/
 /*---start-top-grids-----*/
@@ -645,6 +665,43 @@ a.elemSearchTab {
 
 /*------end--dashboard-----*/
 
+
+
+/*----Start-signup-Modal----*/
+#signupConfirm {
+	top: 20%;
+}
+
+#signupConfirm .modal-dialog{
+	max-width: 840px;
+	width: 60%;
+}
+
+#signupConfirm .modal-header{
+	text-align: center;
+	border: none;
+	margin-bottom: 20px;
+}
+
+#signupConfirm .modal-footer{
+	border: none;
+}
+
+#signupConfirm .modal-body{
+	text-align: center;
+}
+
+h3.modal-title {
+	font-size: 50px;
+	margin-top: 40px;
+}
+
+p.lead {
+	font-size: 24px;
+}
+
+
+/*----End-signup-Modal----*/
 
 
 /*---start-footer----*/

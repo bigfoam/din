@@ -15,10 +15,6 @@
 	<script type="text/javascript" src="js/easing.js"></script>
 	<script type="text/javascript" src="js/MetroJs.js"></script>
 	
-	<!-- Contact Form JavaScript -->
-    <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-    <script type="text/javascript" src="js/contact_me.js"></script>
-	
 </head>
 <body>
 <!---start-wrap---->
@@ -89,7 +85,6 @@
 					</select>
 					<label>&nbsp;and My Email is&nbsp;</label>
 					<input type="email" class="textbox" name="email" value="" required />
-					<!--  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'and My Email is';}" -->
 					<input type="submit" value="Join" />
 				</form>
 			</div>
@@ -211,7 +206,7 @@
 		-->
 		<div class="mid-grids-center">
 			<div class="wrap">
-				<h3>Demo of Dinneract App</h3>
+				<h3></h3>
 				<p>&nbsp;</p>
 				<!-- <iframe src="https://www.youtube.com/embed/TcbzUKdrDhA?rel=0" width="70%" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreenallowfullscreen></iframe> -->
 				<iframe id="player" type="text/html" width="60%" height="500" src="http://www.youtube.com/embed/TcbzUKdrDhA?enablejsapi=1&origin=http://dinneract.com" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -242,7 +237,7 @@
 					<div class="cssmenu">
 						<ul>
 							<li><a href="#home">App</a></li> 
-							<li><a href="#contact">Contact</a></li>
+							<li><a href="mailto:service@dinneract.com">Contact</a></li>
 							<!--support right now is not a popup -->
 							<!-- <li><a href="#contact">Support</a></li> -->
 							<li><a href="#terms" data-toggle="modal" data-backdrop="static">Terms</a></li> 
@@ -289,6 +284,34 @@
 	<div class="copy">
 		<p>&copy; 2014-2015 <a href="index.html"> Dinneract</a></p>
 	</div>
+	
+	
+	<!-- Signup Modal -->
+	<div id="signupConfirm" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h3 class="modal-title">
+	          Signup Confirmation
+	        </h3>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="row">
+          	  <div class="col-sm-10 col-sm-offset-1">
+            	<p class="lead">
+	     			Thank you for joining Dinneract. You will receive an invitation email when we launch our Beta program.
+	     		</p>
+	     	  </div>
+	     	</div>
+	      </div>
+	      <div class="modal-footer">
+	        <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div>
+	<!-- End of Modal -->
 	
 	
 	
@@ -379,21 +402,28 @@
 				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
 			});
 			
+			
 			$("#join").submit(function(e) {
 
 				e.preventDefault();
-	
+				
+				$("#signupConfirm").modal("show");
+
 				var url = "subscribe.php";
 
 				$.post(url, $(this).serialize(), function(data) {
-					if(data[0] == 's') {
-
-						alert("Thank you for joining Dinneract. You will receive an invitation email when we launch our Beta program.");
+					if(data[0] == 's') {					
+						$("#signupConfirm h3.modal-title").html("Signup Confirmation");
+						$("#signupConfirm p.lead").html("Thank you for joining Dinneract. You will receive an invitation email when we launch our Beta program.");
+						$("#signupConfirm").modal("show");
 					} else {
-						console.log(data);
-						alert("Error: system failed in signup! please contact service@dinneract.com");
+						//console.log(data);
+						$("#signupConfirm h3.modal-title").html("Signup Failed");
+						$("#signupConfirm p.lead").html("It seems that our mail server is not responding. Please contact:&nbsp;&nbsp;service@dinneract.com .");
+						$("#signupConfirm").modal("show");
 					}
 				});
+
 			});
 			
 
