@@ -1,5 +1,5 @@
 <?php
-$to      = 'dinneract2015@gmail.com';
+$to      = 'service@dinneract.com, dinneract2015@gmail.com';
 $subject = "signup " . date(DATE_RFC2822);
 $role	 = $_POST["type"];
 $userEmail = $_POST["email"];
@@ -17,21 +17,21 @@ if(!$status) {
 }
 //image
 $roleImgs = array(
-	"Foodie" 	=> "http://res.cloudinary.com/dinneract/image/upload/v1430753846/foodie_qiae9c.jpg",
-	"Merchant"	=> "http://res.cloudinary.com/dinneract/image/upload/v1430753846/merchant_xc7gab.jpg",
-	"Chef"		=> "http://res.cloudinary.com/dinneract/image/upload/v1430753846/chef_necqzd.jpg",
+	"Foodie" 	=> "http://res.cloudinary.com/dinneract/image/upload/v1431321518/foodie_kkffc9.png",
+	"Merchant"	=> "http://res.cloudinary.com/dinneract/image/upload/v1431321518/merchant_af92vt.png",
+	"Chef"		=> "http://res.cloudinary.com/dinneract/image/upload/v1431321518/chef_sgqkxh.png",
 );
 
 $roleMsgsLine1 = array(
-	"Foodie" 	=> "insiders to gain early access to Dinneract.",
-	"Merchant"	=> "business insiders to gain early access to Dinneract.",
-	"Chef"		=> "business insiders to gain early access to Dinneract.",
+	"Foodie" 	=> "insiders to gain early access.",
+	"Merchant"	=> "business insiders to gain early access.",
+	"Chef"		=> "business insiders to gain early access.",
 );
 
 $roleMsgsLine2 = array(
-	"Foodie" 	=> "You will soon receive a special invitation to our app when we launch.",
-	"Merchant"	=> "You will soon receive a special invitation to our app and web portal when we launch.",
-	"Chef"		=> "You will soon receive a special invitation to our app and web portal when we launch.",
+	"Foodie" 	=> "As soon as we launch, you will receive a special invitation to our app.",
+	"Merchant"	=> "As soon as we launch, you will receive a special invitation to our app and web portal.",
+	"Chef"		=> "As soon as we launch, you will receive a special invitation to our app and web portal.",
 );
 
 $roleMsgsLine3 = array(
@@ -106,14 +106,16 @@ $userMsg .= '
                         <span style="color: #606060;font-family: helvetica;font-size: 14px;line-height: 22.5px;">Dear '.$role.',</span>
                         <br style="color: #606060;line-height: 10px;">
                         <br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
-						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">Thank you for joining Dinneract!</span>
+						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">thank you for joining Dinneract.</span>
 						<br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
-						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">You are one of the top&nbsp;</span><strong style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">1,000</strong><span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">&nbsp;'.$roleMsgsLine1[$role].'</span>
+						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">You are one of the first&nbsp;</span>
+						<strong style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">1,000</strong>
+						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">&nbsp;'.$roleMsgsLine1[$role].'</span>
 						<br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
 						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">'.$roleMsgsLine2[$role].'</span>
 						<br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
-						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">For questions and feebacks, contact us at</span>
-						<a href="mailto:dinneract2015@gmail.com" style="color: #6DC6DD;font-family: Helvetica;font-size: 15px;line-height: 22.5px;word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-weight: normal;text-decoration: underline;" target="_blank">dinneract2015@gmail.com</a>
+						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">If you have any questions or comments, please contact us at</span>
+						<a href="mailto:dinneract2015@gmail.com" style="color: #6DC6DD;font-family: Helvetica;font-size: 15px;line-height: 22.5px;word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-weight: normal;text-decoration: underline;" target="_blank">service@dinneract.com</a>
 						<br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
 						<span style="color: #606060;font-family: helvetica;font-size: 15px;line-height: 22.5px;">'.$roleMsgsLine3[$role].'</span>
 						<br style="color: #606060;font-family: Helvetica;font-size: 15px;line-height: 22.5px;">
@@ -210,8 +212,8 @@ $userMsg .= '
 
 
 $subject = "Dinneract Subscription Confirmation";
-$headers = 'From: subscribe@dinneract.com' . "\r\n" .
-	'Reply-To: dinneract2015@gmail.com' . "\r\n" .
+$headers = 'From: service@dinneract.com' . "\r\n" .
+	'Reply-To: service@dinneract.com' . "\r\n" .
 	'MIME-Version: 1.0' . "\r\n".
    	'Content-type: text/html; charset=utf-8' . "\r\n".
     'X-Mailer: PHP/' . phpversion();

@@ -609,16 +609,39 @@ a.add {
 	cursor: pointer;
 }
 
-a.bind {
+.add-on .input-group-btn > .btn {
+	border-left-width:0;
+	left:-2px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+/* stop the glowing blue shadow */
+.add-on .form-control:focus {
+	box-shadow:none;
+	-webkit-box-shadow:none; 
+	border-color:#cccccc; 
+}
+
+.bind {
 	background-color: #F45D35;
 	color: white; 
 }
 
-a.bind:hover {
+.bind:hover {
 	background-color: #DC5430;
 	color: white; 
 }
 
+
+#searchlist {
+	max-height: 720px;
+	overflow-y: auto;
+}
+
+a.elemSearchTab {
+	cursor: pointer;
+}
 
 /*------end--dashboard-----*/
 

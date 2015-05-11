@@ -12,6 +12,7 @@
 	
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-list-filter.min.js"></script>
 	<script type="text/javascript" src="js/jquery.tagsinput.min.js"></script>
 
 	<script type="text/javascript" src="js/move-top.js"></script>
@@ -93,7 +94,7 @@
 							<a href="#post_steps" aria-controls="post_steps" title="postTab" role="tab" data-toggle="tab">Cooking Steps</a>
 						</li>
 						<li role="presentation">
-							<a href="#post_elements" aria-controls="post_elements" title="postTab" role="tab" data-toggle="tab">Ingredient List</a>
+							<a href="#post_elements" aria-controls="post_elements" title="postTab" role="tab" data-toggle="tab">Element List</a>
 						</li>
 						<li role="presentation">
 							<a href="#post_catags" aria-controls="post_catags" title="postTab" role="tab" data-toggle="tab">Categories &amp; tags</a>
@@ -265,7 +266,7 @@
 						<div role="tabpanel" class="tab-pane fade form-horizontal col-sm-11" id="post_elements">
 							<div class="form-group">
 							    <div class="col-sm-11" style="text-align: center; margin-bottom: 10px;">
-							    	<h1>List of Ingredients</h1>
+							    	<h1>List of Elements</h1>
 							    </div>
 							</div>
 							<div class="form-group">
@@ -276,30 +277,23 @@
 									</span>
 								</label>
 							    <div class="col-sm-1">
-							    	<input type="text" class="form-control" name="element_amount[]" placeholder="e.g. 2">
+							    	<input type="text" class="form-control" name="element_amount_1" placeholder="e.g. 2" />
 							    </div>
 							    <div class="col-sm-1">
-							    	<select class="form-control" name="element_unit[]">
-							    		<option value="">unit</option>
-							    		<option selected>lb</option>
-							    		<option>cup</option>
-							    		<option>tbsp.</option>
-							    		<option>tsp.</option>
-							    		<option>bottle</option>
-							    	</select>
+							    	<input type="text" class="form-control" name="element_unit_1" placeholder="e.g. lb" />
 							    </div>
 							    <div class="col-sm-4">
-							    	<input type="text" class="form-control" name="element_name[]" placeholder="e.g. chick breast">
+							    	<div class="input-group add-on">
+								    	<input type="text" class="form-control" name="element_name_1" placeholder="e.g. chick breast" />
+								    	<div class="input-group-btn">
+									        <button class="btn btn-default bind">Add</button>
+									        <input name="element_id_1" type="hidden" value="" />
+									    </div>
+								    </div>
 							    </div>
 							    <div class="col-sm-2">
-							    	<input type="text" class="form-control" name="element_addi[]" placeholder="e.g. chopped">
+							    	<input type="text" class="form-control" name="element_addi_1" placeholder="e.g. chopped" />
 							    </div>
-							    <br/><br/>
-							    <div class="col-sm-2"></div>
-							    <div class="col-sm-4">
-							    	<a class="btn bind">Bind to a product</a> (Optional)
-							    </div>
-							    <div class="col-sm-4"></div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">
@@ -309,33 +303,21 @@
 									</span>
 								</label>
 							    <div class="col-sm-1">
-							    	<input type="text" class="form-control" name="element_amount[]" placeholder="amount">
+							    	<input type="text" class="form-control" name="element_amount_2" placeholder="amount" />
 							    </div>
 							    <div class="col-sm-1">
-							    	<select class="form-control" name="element_unit[]">
-							    		<option value="">unit</option>
-							    		<option>lb</option>
-							    		<option>cup</option>
-							    		<option>tbsp.</option>
-							    		<option>tsp.</option>
-							    		<option>bottle</option>
-							    	</select>
+							    	<input type="text" class="form-control" name="element_unit_2" placeholder="unit" />
 							    </div>
 							    <div class="col-sm-4">
-							    	<input type="text" class="form-control" name="element_name[]" placeholder="ingredient name">
+							    	<input type="text" class="form-control" name="element_name_2" placeholder="element name">
+							    	
 							    </div>
 							    <div class="col-sm-2">
-							    	<input type="text" class="form-control" name="element_addi[]" placeholder="additional info">
+							    	<input type="text" class="form-control" name="element_addi_2" placeholder="additional info">
 							    </div>
 							    <div class="col-sm-1">
 							    	<i class="fa fa-times remove" onclick="deletePostElement(2)"></i>
 							    </div>
-							    <br/><br/>
-							    <div class="col-sm-2"></div>
-							    <div class="col-sm-4">
-							    	<a class="btn bind">Bind to a product</a> (Optional)
-							    </div>
-							    <div class="col-sm-4"></div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">
@@ -345,38 +327,25 @@
 									</span>
 								</label>
 							    <div class="col-sm-1">
-							    	<input type="text" class="form-control" name="element_amount[]" placeholder="amount">
+							    	<input type="text" class="form-control" name="element_amount_3" placeholder="amount" />
 							    </div>
 							    <div class="col-sm-1">
-							    	<select class="form-control" name="element_unit[]">
-							    		<option value="">unit</option>
-							    		<option>lb</option>
-							    		<option>cup</option>
-							    		<option>tbsp.</option>
-							    		<option>tsp.</option>
-							    		<option>bottle</option>
-							    	</select>
+							    	<input type="text" class="form-control" name="element_unit_3" placeholder="unit" />
 							    </div>
 							    <div class="col-sm-4">
-							    	<input type="text" class="form-control" name="element_name[]" placeholder="ingredient name">
+							    	<input type="text" class="form-control" name="element_name_3" placeholder="ingredient name" />
 							    </div>
 							    <div class="col-sm-2">
-							    	<input type="text" class="form-control" name="element_addi[]" placeholder="additional info">
+							    	<input type="text" class="form-control" name="element_addi_3" placeholder="additional info" />
 							    </div>
 							    <div class="col-sm-1">
 							    	<i class="fa fa-times remove" onclick="deletePostElement(3)"></i>
 							    </div>
-							    <br/><br/>
-							    <div class="col-sm-2"></div>
-							    <div class="col-sm-4">
-							    	<a class="btn bind">Bind to a product</a> (Optional)
-							    </div>
-							    <div class="col-sm-4"></div>
 							</div>
 							<div class="form-group" style="text-align: right;">
 							    <div class="col-sm-3"></div>
 							    <div class="col-sm-7">
-							    	<a class="add" id="addPostElement">Add Another Ingredient</a>
+							    	<a class="add" id="addPostElement">Add Another Element</a>
 							    </div>
 							</div>
 							<br/>
@@ -539,7 +508,7 @@
 					<div class="cssmenu">
 						<ul>
 							<li><a href="#home">App</a></li> 
-							<li><a href="mailto:dinneract2015@gmail.com">Support</a></li>
+							<li><a href="mailto:service@dinneract.com">Contact</a></li>
 							<!--support right now is not a popup -->
 							<!-- <li><a href="#contact">Support</a></li> -->
 							<li><a href="#terms" data-toggle="modal" data-backdrop="static">Terms</a></li> 
@@ -597,11 +566,16 @@
 	        <h4 class="modal-title">Product Search</h4>
 	      </div>
 	      <div class="modal-body">
-	        <p>search box</p>
+			<form role="form">
+			    <div class="form-group">
+			        <input id="searchinput" class="form-control" type="search" placeholder="Search by product name..." />
+			    </div>
+			    <div id="searchlist" class="list-group"></div>
+			</form>
 	      </div>
 	      <div class="modal-footer">
 	        <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
-	        <a type="button" class="btn bind">Bind</a>
+	        <!-- <a type="button" class="btn bind">Bind</a> -->
 	      </div>
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
@@ -625,7 +599,8 @@
 	<script type="text/javascript">
 		//global variables
 		var stepNum = 3,
-			elementNum = 3;
+			elementNum = 3,
+			currentElem = 0;
 	
 	
 		//loading modals
@@ -640,6 +615,7 @@
 			$('#' + ulId + ' > li.active').removeClass('active');
     		$('#' + ulId + ' > li > a[href=' + target + ']').parent().addClass('active');
 		})
+		
 		
 		
 		$(document).ready(function() {
@@ -679,7 +655,10 @@
 				addPostElement();
 			});
 			
-			$("#post_elements a.bind").click(function() {
+			//not working for dynamic elements
+			//$("#post_elements a.bind").click(function() {
+			$( '#post_elements' ).on( 'click', 'a.bind', function() {
+				currentElem = $(this).attr("name");
 				$('#elementSearch').modal("show");
 			});
 			
@@ -725,8 +704,49 @@
 					$('#postSpecials').addTag( $('#selectPostSpecial').val() );
 				}
 			});
-
-		});
+			
+			
+			//---element search
+			$('#elementSearch').on('shown.bs.modal', function () {
+				if( $("#searchlist").html() == "" ) {
+					var apiURL = "http://54.148.158.185:3000/elements?contains=beef";
+					//var apiURL = "test.json";
+					
+					$.ajax({
+				   		type: "GET",
+				        beforeSend: function (request) {
+				        	// cookie should be generated by browser
+				        	//document.cookie="connect.sid=xxxx";
+				        },
+				        url: apiURL,
+				        cache: false,
+						crossDomain: true,
+						dataType: 'json',
+						// cannot have credential
+						//xhrFields: { withCredentials: true},
+				        success: function(myElements) {
+				        	
+				        	var elements = "";
+				        	$.each( myElements, function( i, element ) {
+				        		elements += "<a class=\"list-group-item elemSearchTab\" name=\"" + element._id + "\" title=\"click to bind\"><span>" + element.name + "</span></a>";
+				        	});
+				        	
+				        	$("#searchlist").html( elements );
+				        	$('#searchlist').btsListFilter( '#searchinput', {itemChild: 'span'} );
+				        	
+				        	$('.elemSearchTab').click(function(){
+								//set binded element id
+								$("input[name=element_id_" + currentElem + "]").val( $(this).attr("name") );
+								$('#elementSearch').modal("hide");
+							});
+				        	//$('#searchinput').focus();
+				        }
+				    });
+				}
+			});
+			
+			
+		});//end of document.ready
 		
 		function addPostStep() {
 			//1st step is the 6th child
@@ -753,11 +773,13 @@
 		
 		function deletePostStep(order) {
 			//1st step is the 6th child
+			var currentStep;
 			$("#post_steps div.form-group:nth-child(" + (6+order) + ")").remove();
 			stepNum--;
 			for(var i=order; i<=stepNum; i++) {
-				$("#post_steps > div.form-group:nth-child(" + (i+6) + ")").find("strong").html(i);
-				$("#post_steps > div.form-group:nth-child(" + (i+6) + ")").find("i.remove").attr("onclick", "deletePostStep("+i+")");
+				currentStep = $("#post_steps > div.form-group:nth-child(" + (i+6) + ")");
+				currentStep.find("strong").html(i);
+				currentStep.find("i.remove").attr("onclick", "deletePostStep("+i+")");
 			}
 		}
 		
@@ -766,13 +788,80 @@
 			elementNum++;
 				
 			var newElement = "" + 
-						"";
+							"<div class=\"form-group\">" +
+								"<label class=\"col-sm-2 control-label\">" +
+								    "<span class=\"fa-stack\">" +
+										"<i class=\"fa fa-circle fa-stack-2x step\"></i>" +
+										"<strong class=\"fa-stack-1x\">" + elementNum + "</strong>" +
+									"</span>" +
+								"</label>" +
+							    "<div class=\"col-sm-1\">" +
+							    	"<input type=\"text\" class=\"form-control\" name=\"element_amount_" + elementNum + "\" placeholder=\"amount\">" +
+							    "</div>" +
+							    "<div class=\"col-sm-1\">" +
+							    	"<select class=\"form-control\" name=\"element_unit_" + elementNum + "\">" +
+							    		"<option value=\"\">unit</option>" +
+							    		"<option>lb</option>" +
+							    		"<option>cup</option>" +
+							    		"<option>tbsp.</option>" +
+							    		"<option>tsp.</option>" +
+							    		"<option>bottle</option>" +
+							    	"</select>" +
+							    "</div>" +
+							    "<div class=\"col-sm-4\">" +
+							    	"<input type=\"text\" class=\"form-control\" name=\"element_name_" + elementNum + "\" placeholder=\"ingredient name\">" +
+							    "</div>" +
+							    "<div class=\"col-sm-2\">" +
+							    	"<input type=\"text\" class=\"form-control\" name=\"element_addi_" + elementNum + "\" placeholder=\"additional info\">" +
+							    "</div>" +
+							    "<div class=\"col-sm-1\">" +
+							    	"<i class=\"fa fa-times remove\" onclick=\"deletePostElement(" + elementNum + ")\"></i>" +
+							    "</div>" +
+							    "<br/><br/>" +
+							    "<div class=\"col-sm-2\"></div>" +
+							    "<div class=\"col-sm-8 bindDiv\">" +
+							    	"<a class=\"btn bind\" name=\"" + elementNum + "\">Bind to a product</a>" +
+							    	"<input name=\"element_id_" + elementNum + "\" type=\"hidden\" value=\"\"/>" +
+							    "</div>" +
+							"</div>";
+							
+			$("#post_elements > div.form-group:nth-child(" + (elementNum) + ")").after( newElement );
 
 		}
 		
 		function deletePostElement(order) {
 			//1st element is the 2th child
-
+			var currentElement;
+			$("#post_elements div.form-group:nth-child(" + (1+order) + ")").remove();
+			elementNum--;
+			for(var i=order; i<=elementNum; i++) {
+				currentElement = $("#post_elements > div.form-group:nth-child(" + (i+1) + ")");
+				
+				currentElement.find("strong").html(i);
+				currentElement.find("i.remove").attr("onclick", "deletePostElement("+i+")");
+				
+				currentElement.find("select").filter(function() {
+			    	return $(this).attr("name").match(/element_unit_.*/);
+			    }).attr("name", "element_unit_"+i);
+			    
+			    currentElement.find("input").filter(function() {
+			    	return $(this).attr("name").match(/element_amount_.*/);
+			    }).attr("name", "element_amount_"+i);
+			    
+			    currentElement.find("input").filter(function() {
+			    	return $(this).attr("name").match(/element_name_.*/);
+			    }).attr("name", "element_name_"+i);
+			    
+			    currentElement.find("input").filter(function() {
+			    	return $(this).attr("name").match(/element_addi_.*/);
+			    }).attr("name", "element_addi_"+i);
+			    
+			    currentElement.find("input").filter(function() {
+			    	return $(this).attr("name").match(/element_id_.*/);
+			    }).attr("name", "element_id_"+i);
+			    
+			    currentElement.find("a.bind").attr("name", i);
+			}
 		}
 	</script>
 </body>
