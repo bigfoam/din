@@ -2,6 +2,25 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<link rel="apple-touch-icon" sizes="57x57" href="images/icon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/icon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/icon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/icon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/icon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/icon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/icon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/icon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="images/icon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/icon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/icon/favicon-16x16.png">
+	<link rel="manifest" href="images/icon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="images/icon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	
 	<title>Dinneract | Dashboard</title>
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
@@ -48,32 +67,32 @@
 						<span class="text">User Dashboard</span>
 					</a>
 				</li>
-				<li class="active" id="myPosts">
-					<a href="#">
+				<li id="myPosts">
+					<a href="myPosts.html">
 						<i class="fa fa-files-o fw"></i>
 						<span class="text">My Posts</span>
 					</a>
 				</li>
 				<li id="myElements">
-					<a href="#">
+					<a href="myElements.html">
 						<i class="fa fa-tags"></i>
 						<span class="text">My Products</span>
 					</a>
 				</li>
-				<li id="newPost">
-					<a href="#">
+				<li id="newPost" class="active">
+					<a>
 						<i class="fa fa-pencil-square-o fw"></i>
 						<span class="text">New Post</span>
 					</a>
 				</li>
 				<li id="newElement">
-					<a href="#" >
+					<a href="newElement.html" >
 						<i class="fa fa-pencil-square-o"></i>
 						<span class="text">New Product</span>
 					</a>
 				</li>
 				<li id="profile">
-					<a href="#">
+					<a href="profile.html">
 						<i class="fa fa-user"></i>
 						<span class="text">Vendor Profile</span>
 					</a>
@@ -286,7 +305,7 @@
 							    	<div class="input-group add-on">
 								    	<input type="text" class="form-control" name="element_name_1" placeholder="e.g. chick breast" />
 								    	<div class="input-group-btn">
-									        <button class="btn btn-default bind">Add</button>
+									        <a class="btn btn-default bind" name="1">Add</a>
 									        <input name="element_id_1" type="hidden" value="" />
 									    </div>
 								    </div>
@@ -309,8 +328,13 @@
 							    	<input type="text" class="form-control" name="element_unit_2" placeholder="unit" />
 							    </div>
 							    <div class="col-sm-4">
-							    	<input type="text" class="form-control" name="element_name_2" placeholder="element name">
-							    	
+							    	<div class="input-group add-on">
+								    	<input type="text" class="form-control" name="element_name_2" placeholder="element name" />
+								    	<div class="input-group-btn">
+									        <a class="btn btn-default bind" name="2">Add</a>
+									        <input name="element_id_2" type="hidden" value="" />
+									    </div>
+								    </div>
 							    </div>
 							    <div class="col-sm-2">
 							    	<input type="text" class="form-control" name="element_addi_2" placeholder="additional info">
@@ -333,7 +357,13 @@
 							    	<input type="text" class="form-control" name="element_unit_3" placeholder="unit" />
 							    </div>
 							    <div class="col-sm-4">
-							    	<input type="text" class="form-control" name="element_name_3" placeholder="ingredient name" />
+							    	<div class="input-group add-on">
+								    	<input type="text" class="form-control" name="element_name_3" placeholder="element name" />
+								    	<div class="input-group-btn">
+									        <a class="btn btn-default bind" name="3">Add</a>
+									        <input name="element_id_3" type="hidden" value="" />
+									    </div>
+								    </div>
 							    </div>
 							    <div class="col-sm-2">
 							    	<input type="text" class="form-control" name="element_addi_3" placeholder="additional info" />
@@ -621,27 +651,6 @@
 		$(document).ready(function() {
 			
 			$('#postTab a:first').tab('show');
-			//nav bar
-			$("#myPosts").click(function() {
-				$(this).addClass("active");
-      			$("li").not(this).removeClass("active");
-			});
-			$("#myElements").click(function() {
-				$(this).addClass("active");
-      			$("li").not(this).removeClass("active");
-			});
-			$("#newPost").click(function() {
-				$(this).addClass("active");
-      			$("li").not(this).removeClass("active");
-			});
-			$("#newElement").click(function() {
-				$(this).addClass("active");
-				$("li").not(this).removeClass("active");
-			});
-			$("#profile").click(function() {
-				$(this).addClass("active");
-      			$("li").not(this).removeClass("active");
-			});
 			
 			//Post basic
 			
@@ -709,8 +718,8 @@
 			//---element search
 			$('#elementSearch').on('shown.bs.modal', function () {
 				if( $("#searchlist").html() == "" ) {
-					var apiURL = "http://54.148.158.185:3000/elements?contains=beef";
-					//var apiURL = "test.json";
+					//var apiURL = "http://54.148.158.185:3000/elements?contains=beef";
+					var apiURL = "myElements.json";
 					
 					$.ajax({
 				   		type: "GET",
@@ -724,11 +733,11 @@
 						dataType: 'json',
 						// cannot have credential
 						//xhrFields: { withCredentials: true},
-				        success: function(myElements) {
+				        success: (function(myElements) {
 				        	
 				        	var elements = "";
 				        	$.each( myElements, function( i, element ) {
-				        		elements += "<a class=\"list-group-item elemSearchTab\" name=\"" + element._id + "\" title=\"click to bind\"><span>" + element.name + "</span></a>";
+				        		elements += "<a class=\"list-group-item elemSearchTab\" name=\"" + element._id + "\" title=\"click to add\"><span>" + element.name + "</span></a>";
 				        	});
 				        	
 				        	$("#searchlist").html( elements );
@@ -737,10 +746,11 @@
 				        	$('.elemSearchTab').click(function(){
 								//set binded element id
 								$("input[name=element_id_" + currentElem + "]").val( $(this).attr("name") );
+								$("input[name=element_name_" + currentElem + "]").val( $(this).find("span").html() );
 								$('#elementSearch').modal("hide");
 							});
 				        	//$('#searchinput').focus();
-				        }
+				        })
 				    });
 				}
 			});
@@ -796,32 +806,25 @@
 									"</span>" +
 								"</label>" +
 							    "<div class=\"col-sm-1\">" +
-							    	"<input type=\"text\" class=\"form-control\" name=\"element_amount_" + elementNum + "\" placeholder=\"amount\">" +
+							    	"<input type=\"text\" class=\"form-control\" name=\"element_amount_" + elementNum + "\" placeholder=\"amount\" />" +
 							    "</div>" +
 							    "<div class=\"col-sm-1\">" +
-							    	"<select class=\"form-control\" name=\"element_unit_" + elementNum + "\">" +
-							    		"<option value=\"\">unit</option>" +
-							    		"<option>lb</option>" +
-							    		"<option>cup</option>" +
-							    		"<option>tbsp.</option>" +
-							    		"<option>tsp.</option>" +
-							    		"<option>bottle</option>" +
-							    	"</select>" +
+							    	"<input type=\"text\" class=\"form-control\" name=\"element_unit_" + elementNum + "\" placeholder=\"unit\" />" +
 							    "</div>" +
 							    "<div class=\"col-sm-4\">" +
-							    	"<input type=\"text\" class=\"form-control\" name=\"element_name_" + elementNum + "\" placeholder=\"ingredient name\">" +
+							    	"<div class=\"input-group add-on\">" +
+								    	"<input type=\"text\" class=\"form-control\" name=\"element_name_" + elementNum + "\" placeholder=\"element name\" />" +
+								    	"<div class=\"input-group-btn\">" +
+									        "<a class=\"btn btn-default bind\" name=\"" + elementNum + "\">Add</a>" +
+									        "<input name=\"element_id_" + elementNum + "\" type=\"hidden\" value=\"\" />" +
+									    "</div>" +
+								    "</div>" +
 							    "</div>" +
 							    "<div class=\"col-sm-2\">" +
-							    	"<input type=\"text\" class=\"form-control\" name=\"element_addi_" + elementNum + "\" placeholder=\"additional info\">" +
+							    	"<input type=\"text\" class=\"form-control\" name=\"element_addi_" + elementNum + "\" placeholder=\"additional info\" />" +
 							    "</div>" +
 							    "<div class=\"col-sm-1\">" +
 							    	"<i class=\"fa fa-times remove\" onclick=\"deletePostElement(" + elementNum + ")\"></i>" +
-							    "</div>" +
-							    "<br/><br/>" +
-							    "<div class=\"col-sm-2\"></div>" +
-							    "<div class=\"col-sm-8 bindDiv\">" +
-							    	"<a class=\"btn bind\" name=\"" + elementNum + "\">Bind to a product</a>" +
-							    	"<input name=\"element_id_" + elementNum + "\" type=\"hidden\" value=\"\"/>" +
 							    "</div>" +
 							"</div>";
 							
@@ -840,7 +843,7 @@
 				currentElement.find("strong").html(i);
 				currentElement.find("i.remove").attr("onclick", "deletePostElement("+i+")");
 				
-				currentElement.find("select").filter(function() {
+				currentElement.find("input").filter(function() {
 			    	return $(this).attr("name").match(/element_unit_.*/);
 			    }).attr("name", "element_unit_"+i);
 			    

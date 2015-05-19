@@ -126,13 +126,7 @@ body{
 	font-size: 16px;
 	text-align: left;
 }
-/*
-.img-banner-info p{
-	width:75%;
-	float:right;
-	margin-top:1em;
-}
-*/
+
 .img-banner-pic {
 	float: right;
 	width: 43%;
@@ -140,6 +134,7 @@ body{
 	background: url(../images/iphone6-frame.png) 59px no-repeat;
 	height: 598px;
 	margin-bottom: 0;
+	z-index: 1000;
 }
 
 .info-btns ul li{
@@ -167,6 +162,23 @@ body{
 }
 
 /*----some addons----*/
+.logo img {
+	margin-top: 12px;
+}
+
+#screenshot {
+	margin-left: 78px;
+	margin-top: 73px;
+}
+
+#app-img-section {
+	margin-left: 77px;
+	margin-top: 73px;
+	width: 250px;
+	height: 440px;
+}
+
+/*
 #app-banner {
 	margin-left: 80px;
 	margin-top: 72px;
@@ -176,12 +188,7 @@ body{
 }
 
 #app-img-loading,
-#app-img-section {
-	margin-left: 80px;
-	margin-top: 0px;
-	width: 247px;
-	height: 400px;
-}
+
 		
 #loading {
 	width: 36px;
@@ -206,11 +213,7 @@ body{
 	font-weight: 600;
 	background: rgba(168,168,168,0.5);
 }
-		
-.logo img {
-	margin-top: 12px;
-}
-/*
+
 .singup {
 	padding: 10px 16px;
 	font-size: 19px;
@@ -335,7 +338,7 @@ body{
 }
 .mid-grid-top-info{
 	float: right;
-	width: 53%;
+	width: 58%;
 	margin-top: 4.5em;
 	padding: 0 8% 0 5%;
 }
@@ -373,10 +376,10 @@ body{
 /*---carousel---*/
 #carousel {
 	float: right;
-	margin-top: 70px;
-	margin-right: 20px;
+	margin-top: 71px;
+	margin-right: 19px;
 }
-		
+/*		
 .carousel-inner .item {
 	-webkit-transition: opacity 3s;
 	-moz-transition: opacity 3s;
@@ -401,7 +404,7 @@ body{
 .carousel-inner .item {
 	height: 100%;
 }
-
+*/
 /*---End-mid-grids-----*/
 /*---start-mid-grids-bottom-----*/
 .mid-grids-bottom form{
@@ -615,12 +618,18 @@ ul.menu>li .toggle-icon{
 
 i.step {
 	color: #3C9892;
+	margin-top: -5px;;
+}
+
+.fa-stack strong {
+	margin-top: -5px;;
 }
 
 i.remove {
 	color: #C3676D;
 	cursor: pointer;
 }
+
 
 a.add {
 	color: #3C9892;
@@ -1255,4 +1264,87 @@ ul.social-buttons li a:focus {
 	.img-banner-info h2 {
 		font-size: 1.5em;
 	}
+}
+
+
+
+
+/*--------MyPosts and MyElements-------*/
+
+.post { 
+	width: 360px;
+	margin: 10px;
+	float: left;
+}
+
+.post label {
+	position: absolute;
+	bottom: 5px;
+	left: 0px;
+	min-height: 32px;
+	width: 360px;
+	padding: 2px 30px 2px 30px;
+	line-height: 26px;
+	vertical-align: middle;
+	font-family: sans-serif;
+	font-size: 16px;
+	font-weight: 800;
+	color: #FFF;
+	text-shadow: 0 1px 2px #000;
+	background: #545454;
+	opacity: 0.6;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.post a img {
+	width: 360px;
+}
+
+.like {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	height: 50px;
+	width: 48px;
+}
+
+.unlike,
+.liked {
+	position: relative;
+	top: 0px;
+	right: 0px;
+	height: 44px;
+	width: 42px;
+	background-repeat: no-repeat;
+	background-position: center top;
+	cursor: pointer;
+}
+
+.liked {
+	background: url("../images/heart.png");
+}
+
+.unlike {
+	background: url("../images/heart_empty.png");
+}
+
+.like_num {
+	position: relative;
+	top: -34px;
+	right: -24px;
+	background: #FFF;
+	height: 48px;
+	line-height: 48px;
+	vertical-align: middle;
+	/* font-family: sans-serif; */
+	font-size: 13px;
+	padding: 4px;
+	-webkit-border-radius: 22px;
+	-moz-border-radius: 22px;
+	border-radius: 22px;
 }
