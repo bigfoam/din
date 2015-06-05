@@ -82,34 +82,16 @@
 						<span class="text">User Dashboard</span>
 					</a>
 				</li>
-				<li id="myPosts">
-					<a href="myPosts.html">
-						<i class="fa fa-files-o fw"></i>
-						<span class="text">My Posts</span>
-					</a>
-				</li>
-				<li id="myElements">
-					<a href="myElements.html">
-						<i class="fa fa-tags"></i>
-						<span class="text">My Products</span>
-					</a>
-				</li>
 				<li id="newPost">
-					<a href="newPost.html">
+					<a href="newPost_tmp.html">
 						<i class="fa fa-pencil-square-o fw"></i>
-						<span class="text">New Post</span>
+						<span class="text">New Post - Temp</span>
 					</a>
 				</li>
 				<li id="newElement" class="active">
 					<a>
 						<i class="fa fa-pencil-square-o"></i>
-						<span class="text">New Product</span>
-					</a>
-				</li>
-				<li id="profile">
-					<a href="profile.html">
-						<i class="fa fa-user"></i>
-						<span class="text">Vendor Profile</span>
+						<span class="text">New Product - Temp</span>
 					</a>
 				</li>
 			</ul>
@@ -150,6 +132,12 @@
 							    </div>
 							</div>
 							<div class="form-group">
+							    <label class="col-sm-3 control-label">Vendor Name</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="vendor" placeholder="Who is selling this product ?" required/>
+							    </div>
+							</div>
+							<div class="form-group">
 							    <label class="col-sm-3 control-label">Thumbnail</label>
 							    <div class="col-sm-7">
 							    	<input id="thumb_upload" class="cloudinary_fileupload" type="file" name="file">
@@ -165,22 +153,6 @@
 							    <div class="col-sm-7" id="thumb_display">
 
 
-					<div class='display'>
-						<img height='100' src='http://vignette3.wikia.nocookie.net/bloodbrothers2/images/5/56/BB2main.png/revision/latest/scale-to-width/600?cb=20150206041929'/>
-						<i class='fa fa-times remove'></i>
-					</div>
-					
-					<div class='display'>
-						<img height='100' src='http://vignette2.wikia.nocookie.net/bloodbrothers2/images/a/a1/From_The_Ashes_Banner.png/revision/latest/scale-to-width/250?cb=20150522074444'/>
-						<i class='fa fa-times remove'></i>
-					</div>
-					
-					<div class='display'>
-						<img height='100' src='http://vignette3.wikia.nocookie.net/bloodbrothers2/images/4/48/Login_Bonus_May.png/revision/latest/scale-to-width/250?cb=20150502040726'/>
-						<i class='fa fa-times remove'></i>
-					</div>
-
-
 							    </div>
 							</div>
 							<div class="form-group">
@@ -192,21 +164,6 @@
 							<div class="form-group">
 								<div class="col-sm-3"></div>
 							    <div class="col-sm-7" id="photo_display">
-		
-				    <div class='display'>
-						<img height='100' src='http://vignette3.wikia.nocookie.net/bloodbrothers2/images/5/56/BB2main.png/revision/latest/scale-to-width/600?cb=20150206041929'/>
-						<i class='fa fa-times remove'></i>
-					</div>
-					
-					<div class='display'>
-						<img height='100' src='http://vignette2.wikia.nocookie.net/bloodbrothers2/images/a/a1/From_The_Ashes_Banner.png/revision/latest/scale-to-width/250?cb=20150522074444'/>
-						<i class='fa fa-times remove'></i>
-					</div>
-					
-					<div class='display'>
-						<img height='100' src='http://vignette3.wikia.nocookie.net/bloodbrothers2/images/4/48/Login_Bonus_May.png/revision/latest/scale-to-width/250?cb=20150502040726'/>
-						<i class='fa fa-times remove'></i>
-					</div>
 		
 		
 							    </div>
@@ -480,7 +437,29 @@
 	</div>
 	<!-- End of Modal -->
 
-
+	
+	
+	<!-- Modal -->
+	<div id="tmpReturn" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	 <div class="modal-dialog" style="width: 960px; height: 600px;">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	      	
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4>Copy and paste in your doc</h4>
+	      </div>
+	      <div class="modal-body" style="overflow-y: auto; height: 500px;">
+			
+	      </div>
+	      <div class="modal-footer">
+	        <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div>
+	<!-- End of Modal -->
+	
+	
 	
 	<script type="text/javascript">
 		//global variables
@@ -662,9 +641,18 @@
 					json.brand = $("input[name=brand]").val();
 				}
 				
+				//vendor --- tmp use
+				json.vendor = "";
+				if( $("input[name=vendor]").val().length < 1 ) {
+					return alert("Error: please enter the vendor name of the product!");
+				} else {
+					json.vendor = $("input[name=vendor]").val();
+				}
+				
 				//price
 				json.price = new Object();
-				if( !isIntOrFloat( $("input[name=price_amount]").val() ) ) {
+				//if( !isIntOrFloat( $("input[name=price_amount]").val() ) ) {
+				if( $("input[name=price_amount]").val().length < 1 ) {
 					return alert("Error: please enter the price of the product!");
 				} else {
 					json.price.amount = $("input[name=price_amount]").val();
@@ -746,7 +734,10 @@
 				}
 				
 			
-				submitForm( JSON.stringify(json) );
+				//submitForm( JSON.stringify(json) );
+				
+				$("#tmpReturn .modal-body").html( JSON.stringify(json) );
+				$("#tmpReturn").modal('show');
 			});
 			
 			

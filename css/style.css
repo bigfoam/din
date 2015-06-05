@@ -483,9 +483,6 @@ body{
 	padding: 4em 0 0 0;
 	position: relative;
 	margin: 2px 0;
-	border: 1px solid #eee;
-	border-right: 0;
-	border-left: 0;
 }
 
 .dash .navbar{
@@ -720,6 +717,11 @@ p.lead {
 	text-align:center;
 	padding: 0;
 	position:relative;
+	
+	border: 1px solid #eee;
+	border-right: 0;
+	border-left: 0;
+	border-bottom: 0;
 }
 
 .footer-dash .wrap {
@@ -1275,6 +1277,7 @@ ul.social-buttons li a:focus {
 	width: 360px;
 	margin: 10px;
 	float: left;
+	cursor: pointer;
 }
 
 .post label {
