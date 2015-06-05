@@ -1,6 +1,26 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+	<meta charset="UTF-8">
+	<link rel="apple-touch-icon" sizes="57x57" href="images/icon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/icon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/icon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/icon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/icon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/icon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/icon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/icon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="images/icon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/icon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/icon/favicon-16x16.png">
+	<link rel="manifest" href="images/icon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="images/icon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	
+	
 	<title>Dinneract | Home</title>
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -27,11 +47,10 @@
 		<div class="head-nav">
 			<ul>
 				<li class="active"><a href="#home" class="scroll">Home</a></li>
-				<!-- <li><a href="#signup" class="scroll">Sign Up</a></li> -->
+				<li><a href="#signup" class="scroll">Sign Up</a></li>
 				<li><a href="#features" class="scroll">Features</a></li>
 				<li><a href="#how" class="scroll">How</a></li>
 				<li><a href="#demo" class="scroll">Demo</a></li>
-				<li><a href="#contact" class="scroll">Contact</a></li>
 			</ul>
 		</div>
 		<div class="clear"> </div>
@@ -52,20 +71,68 @@
 				<div class="clear"> </div>
 				<div class="info-btns">
 					<ul>
-						<li><a href="#"> </a></li>
-						<li><a href="#"> </a></li>
+						<li><a href="#signup" class="scroll"> </a></li>
+						<li><a href="#signup" class="scroll"> </a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="img-banner-pic">
-			<div id="app-banner"></div>
+			<!-- <div id="app-banner"></div>
 			<div id="app-img-loading">
 				<img id="loading" src="images/loading-cup.gif">
+			</div> -->
+			<div id="app-img-section" class="live-tile" data-mode="carousel" data-direction="horizontal" data-delay="4000">
+				<div class="screen">
+					<img src="images/screenshot/dinneract.png" alt="dinneract" />
+					<!-- <span class='tile-title'>title</span> -->
+				</div>
+				<div class="screen">
+					<img src="images/screenshot/merchant.png" alt="merchant" />
+				</div>
+				<div class="screen">
+					<img src="images/screenshot/foodie.png" alt="foodie" />
+				</div>
+				<div class="screen">
+					<img src="images/screenshot/chef.png" alt="chef" />
+				</div>
 			</div>
-			<div id="app-img-section" class="live-tile" data-mode="carousel" data-direction="vertical" data-delay="5000">
+			<!-- <div id="screenshot" class="carousel slide carousel-fade" data-ride="carousel">
+					  	
+				<div class="carousel-inner">
+					<div class="active item">
+						<img src="images/screenshot/dinneract.png" alt="dinneract" />
+					</div>
+					<div class="item">
+						<img src="images/screenshot/merchant.png" alt="merchant" />
+					</div>
+					<div class="item">
+					   	<img src="images/screenshot/foodie.png" alt="foodie" />
+					</div>
+					<div class="item">
+						<img src="images/screenshot/chef.png" alt="chef" />
+					</div>
+					<div class="item">
+						<img src="images/screenshot/login.png" alt="login" />
+					</div>
+					<div class="item">
+						<img src="images/screenshot/discovery.png" alt="discovery" />
+					</div>
+					<div class="item">
+						<img src="images/screenshot/post.png" alt="post" />
+					</div>
+					<div class="item">
+						<img src="images/screenshot/products.png" alt="products" />
+					</div>
+					<div class="item">
+						<img src="images/screenshot/product.png" alt="buy" />
+					</div>
+				</div>
 
-			</div>
+				<a class="carousel-control left" href="#screenshot" data-slide="prev" style="padding-top: 216px;">&lsaquo;</a>
+				<a class="carousel-control right" href="#screenshot" data-slide="next" style="padding-top: 216px;">&rsaquo;</a>
+				
+			</div>-->
 		</div>
 		<div class="clear"> </div>
 	</div>
@@ -98,7 +165,7 @@
 		<div class="top-grid">
 			<a class="icon1"><img src="images/vendor.png" /></a>
 			<h3>Merchants</h3>
-			<b>The fastest way to sell your special foods</b>
+			<b>The fastest way to sell your speciality foods</b>
 			<p>
 				Get direct access to your consumers without hassle in the traditional distribution. 
 				Your products will be seen by the consumers globally. 
@@ -107,7 +174,7 @@
 		<div class="top-grid">
 			<a class="icon2"><img src="images/foodie.png" /></a>
 			<h3>Foodies</h3>
-			<b>The most fashionable food shopping experience</b>
+			<b>The most fashionable way to shop food</b>
 			<p>
 				Discover world's specialty foods and their amazing use in one place. 
 				Easy and instant shop of what is on your taste radar. Share and influence.
@@ -124,13 +191,13 @@
 		</div>
 		<div class="clear"> </div>
 		<div class="top-grid">
-			<a href="#signup" class="tellMeMore">Brilliant. Tell me more.</a>	
+			<a href="#signup" class="tellMeMore scroll">Brilliant. Tell me more.</a>	
 		</div>
 		<div class="top-grid">
-			<a href="#signup" class="tellMeMore">Fun. Tell me more.</a>	
+			<a href="#signup" class="tellMeMore scroll">Fun. Tell me more.</a>	
 		</div>
 		<div class="top-grid">
-			<a href="#signup" class="tellMeMore">Smart. Tell me more.</a>	
+			<a href="#signup" class="tellMeMore scroll">Smart. Tell me more.</a>	
 		</div>
 		<div class="clear"> </div>
 	</div>
@@ -143,34 +210,38 @@
 			<div class="wrap">
 				<h3>How does Dinneract work?</h3>
 				<div class="mid-grid-top-pic">
-					<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+					<div id="carousel" class="carousel slide" data-ride="carousel">
 					  	
 					  	<!-- Carousel items -->
-					  	<div class="carousel-inner">
+					  	<div class="carousel-inner" role="listbox">
 					    	<div class="active item">
-					    		<img src="images/step1.png" alt="step1" />
+					    		<img src="images/step/1.png" alt="step1" />
 					    	</div>
 					   		<div class="item">
-					   			<img src="images/step2.png" alt="step2" />
+					   			<img src="images/step/2.png" alt="step2" />
 					   		</div>
 					    	<div class="item">
-					    		<img src="images/step3.png" alt="step3" />
+					    		<img src="images/step/3.png" alt="step3" />
 					    	</div>
 					    	<div class="item">
-					    		<img src="images/step4.png" alt="step4" />
+					    		<img src="images/step/4.png" alt="step4" />
 					    	</div>
 					    	<div class="item">
-					    		<img src="images/step5.png" alt="step5" />
+					    		<img src="images/step/5.png" alt="step5" />
+					    	</div>
+					    	<div class="item">
+					    		<img src="images/step/6.png" alt="step6" />
 					    	</div>
 					  	</div>
 
 					  	<!-- Carousel nav -->
-					  	<ol class="carousel-indicators">
+					  	<!--<ol class="carousel-indicators">
 					    	<li data-target="#carousel" data-slide-to="0" class="active"></li>
 					    	<li data-target="#carousel" data-slide-to="1"></li>
 					    	<li data-target="#carousel" data-slide-to="2"></li>
 					    	<li data-target="#carousel" data-slide-to="3"></li>
 					    	<li data-target="#carousel" data-slide-to="4"></li>
+					    	<li data-target="#carousel" data-slide-to="5"></li>
 					  	</ol>
 					  	<!-- 
 					  	<a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
@@ -179,8 +250,10 @@
 					</div>
 				</div>
 				<div class="mid-grid-top-info">
-					<h3 id="stepTitle">Log in App</h3>
-					<p id="stepDetail">Log in Dinneract from your mobile device. On discover page, click + to create a new recipe.</p>
+					<h3 id="stepTitle">A Community for Food Fashion</h3>
+					<p id="stepDetail">
+						The quality eating and healthy diet have made food more than a mere necessity. In Dinneract, we believe food is a fashion. Each person has a unique taste bud just like their fashion sense on how to mix and match clothes. Dinneract gives everyone everywhere a voice in shaping today's eating trends and influencing food purchases. 
+					</p>
 				</div>
 				<div class="clear"> </div>
 			</div>
@@ -191,39 +264,15 @@
 	
 	<!---start-mid-grids 3----->
 	<div class="mid-grids" id="demo">
-		<!--
-		<div class="mid-grid-top">
-			<div class="wrap">
-				<div class="mid-grid-top-pic">
-				</div>
-				<div class="mid-grid-top-info">
-					<h3>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</h3>
-					<p>adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,</p>
-				</div>
-				<div class="clear"> </div>
-			</div>
-		</div>
-		-->
 		<div class="mid-grids-center">
 			<div class="wrap">
-				<h3></h3>
-				<p>&nbsp;</p>
-				<!-- <iframe src="https://www.youtube.com/embed/TcbzUKdrDhA?rel=0" width="70%" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreenallowfullscreen></iframe> -->
+				<!--<h3></h3>
+				<p>&nbsp;</p>-->
 				<iframe id="player" type="text/html" width="60%" height="500" src="http://www.youtube.com/embed/TcbzUKdrDhA?enablejsapi=1&origin=http://dinneract.com" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>	
 	<!---//End-mid-grids----->
-	
-	
-	
-	
-	<!-- Contact Section -->
-    <section id="contact">
-    </section>
-    
-    
-    
 	
 	
 	<!---start-footer----->
@@ -332,44 +381,36 @@
 	<script type="text/javascript">
 	
 		//loading modals
-		$("#privacy").load("privacy.inc"); 
-		$("#terms").load("terms.inc"); 
+		$("#privacy").load("inc/privacy.inc"); 
+		$("#terms").load("inc/terms.inc"); 
 		
-		
-		
-		var myTimer;
-		//since loading images are async
-		var img_counter = 0, img_max_num = 10;
-		var startTime = 0, timeOut = 5000;
 		
 		var stepTitle = [
-			"Edit a Recipe",
-			"Edit Elements",
-			"Edit Buy Links",
-			"Submit the Post",
+			"Discover Food and Food Ideas",
+			"Discover What\'s Behind Posts",
+			"Tips to Create the Cooking Steps",
+			"Tips to Create the Elements List",
+			"A Glance at Product Page",
 			
-			"Log in App"
+			"A Community for Food Fashion"
 		];
 		
 		var stepDetail = [
-			"Use camera on the mobile device to take a picture, or upload a picture from your photo album as the recipe photo. Add recipe name, cooking steps, cooking time and serving size. Create an element lists with shopping links to featured products.",
-			"Edit all the relevant elements to carry out this recipe, including ingredients and cookwares. They are presumably one of these, but not restricted to food, drink, cooking tools and cookbooks.",
-			"Add shopping links for featured products. If the product is already in our database, you can select the item and double click to add. Otherwise, go back to My Profile -> My Items to create a new item following the instructions on how to add a new item, and select the newly added item from \"My Items\".",
-			"Once submit, your have successfully created a recipe post. It will show on top of the discover page.",
+			"The great thing about Dinneract is you can discover new products and how to use them in one place. The first that comes to sight after you log in is the Discover page. It is a collection of Posts that are product oriented but presented in fabulous pictures of food cuisine created by all the users. The best way to explore in Dinneract is by Post, which one can easily like, save, comment, follow and share to other social networks.",
+			"Post is a recipe based solution to introduce products. Each Post features one or more food related products (food, drink, cookware) that are used either as ingredients or cooking tools. Like any recipe, a Post contains a list of functional Elements (ingredients, cooking tools etc.) and a list of cooking Steps. Have questions or comments? Check Comments to interact with the Post creator and the community.",
+			"The cooking steps are manuals to instruct others how to make the most out of a product. An extra bit of patience would not go amiss in creating the Steps if you are a business user. Make it brief and clear. And include the name of the featured products in the corresponding Steps where they are used.",
+			"An Elements list is more than just the ingredient lists shown in any recipe. Elements list allows one to add all possible items useful to create the Post. The featured products can be food & drink (ingredients), cookwares (cooking tools & containers), cookbooks ( cooking manuals), or even food events (related activities). If you are a merchant or chef, one piece of information you can never miss when editing the Element list is the Buy link. It will take people to your online store and bring you new business!",
+			"The product page contains more information about the featured product. In Dinneract, we encourage people to consume healthy, quality food to support specialty food community. Certificate labels distinguish those food products in the trend of organic, all natural, gluten-free,  non-GMO, sustainable etc., and help users to quickly decide if they are interested in any product. On clicking Buy Now, one can make an order from any mobile device, or save the product to a wish list for later use.",
 			
-			"Log in Dinneract from your mobile device. On discover page, click + to create a new recipe."
+			"The quality eating and healthy diet have made food more than a mere necessity. In Dinneract, we believe food is a fashion. Each person has a unique taste bud just like their fashion sense on how to mix and match clothes. Dinneract gives everyone everywhere a voice in shaping today's eating trends and influencing food purchases."
 		];
 		
+		/*
 		function checkImageLoad() {
-			//console.log(img_counter);
-			var d = new Date();
-			if(img_counter >= img_max_num || (d.getTime() - startTime) >= timeOut ) {
-				clearInterval(myTimer);
-				$("#app-img-loading").hide();
-			    $("#app-img-section").show();
-				$("#app-img-section").liveTile();
-			}
-		}
+			$("#app-img-loading").hide();
+			$("#app-img-section").show();
+			$("#app-img-section").liveTile();
+		}*/
 		
 		function verticalCenter() {
 			if( $(".img-banner-info-inner").height() <= $(".img-banner-info").height() ) {
@@ -379,7 +420,10 @@
 		}
 		
 		$(document).ready(function($) {
-			$("#app-img-section").hide();
+			//$("#app-img-section").hide();
+			
+			//myTimer = setTimeout(function(){ checkImageLoad(); }, 2000);
+			$("#app-img-section").liveTile();
 			
 			$('.carousel').carousel({
 				interval: 5000
@@ -399,15 +443,29 @@
 			
 			$(".scroll").click(function(event){		
 				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+				var hashTag = this.hash,
+					offset = $(hashTag).offset().top;
+					console.log(hashTag+","+offset);
+				switch(hashTag) {
+					case "#signup":
+					case "#features":
+					case "#how":
+						offset = offset - 54;
+						break;
+						
+					case "#demo":
+						//offset = offset + 190;
+						break;
+					
+					default: break;
+				}
+				$('html,body').animate({scrollTop:offset},600);
 			});
 			
 			
 			$("#join").submit(function(e) {
 
 				e.preventDefault();
-				
-				$("#signupConfirm").modal("show");
 
 				var url = "subscribe.php";
 
@@ -425,78 +483,7 @@
 				});
 
 			});
-			
-
-			$(".tellMeMore").on("click", function( e ) {
-		
-		        e.preventDefault();
-		
-		        $("body, html").animate({ 
-		            scrollTop: $("#signup").offset().top
-		        }, 600);
-				
-				$("#join input[name=email]").focus();
-				//$("#join input[name=email]").fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
-		    });
 		    
-		    
-		    
-			
-			
-			var max_height = 400;
-			var max_width = 247;
-			var i = 0, offset = Math.floor(Math.random()*200);
-			//54.148.158.185
-			var url = "http://54.148.158.185:3000/posts" + "?offset=" + offset;
-			
-	
-			var jqxhr = $.ajax({ 
-					method: "GET",
-					url: url,
-					crossDomain: true,
-					//cache: false,
-					dataType: "json"
-				}).done(function(json) {
-			    	//console.log(json);
-					for(i=0; i<json.length; i++) {
-						
-						var post = json[i];
-						var imgURL = post.photo.split(',');
-						var title = post.title;
-						
-				    	$("<img/>").attr('src', imgURL[0]).attr("alt", title).load(function(){//async
-							
-							if( (this.width * max_height / this.height) > max_width ) {
-								$(this).css("width", Math.round(this.width * max_height / this.height)+ "px");
-								$(this).css("height", max_height + "px");
-							} else {
-								$(this).css("height", Math.round(this.height * max_width / this.width)+ "px");
-								$(this).css("width", max_width + "px");
-							}
-							
-							// image is loaded
-							
-							var titleSpan = $("<span class='tile-title'>").html( $(this).attr("alt") );
-							
-							$("#app-img-section").append( $("<div class='screen'>").append(this).append( titleSpan ) );
-							
-							img_counter = img_counter + 1;
-						});
-		    	
-				    }
-					
-					var d = new Date();
-					startTime = d.getTime();
-		    		myTimer = setInterval(function(){ checkImageLoad(); }, 500);
-
-
-				}).fail(function() {
-					$("#app-img-section").html("<p class='warning'>Sever is under maintenance...</p>");
-			    	$("#app-img-loading").hide();
-		    		$("#app-img-section").show();
-			  	});
-		    
-
 		});
 	</script>
 </body>

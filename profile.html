@@ -21,81 +21,21 @@
 	<meta name="theme-color" content="#ffffff">
 
 	
-	<title>Dinneract | Login</title>
+	<title>Dinneract | Dashboard</title>
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans"/>
 	<link rel="stylesheet" type="text/css" href="css/font-awesome-4.3.0/css/font-awesome.min.css"/>
 	
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-list-filter.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tagsinput.min.js"></script>
 
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
-
-	<style>
-		.footer-login {
-			text-align:center;
-			width:100%;
-			height:100px;
-			position:absolute;
-			bottom:0;
-			left:0;
-		}
-		
-		
-		.container {
-		  position: relative;
-		}
-		
-		.form-signin {
-		  width: 330px;
-		  height: 300px;
-		  padding: 15px;
-
-		  position: absolute;
-		  
-		  top: 50%;
-		  left: 50%;
-		  margin-top: 100px;
-		  margin-left: -165px;
-		}
-		.form-signin .form-signin-heading {
-		  
-		  margin-bottom: 20px;
-		  font-weight: 800;
-		  font-size: 24px;
-		}
-		.form-signin .forget {
-		  margin-bottom: 10px;
-		  font-weight: normal;
-		  font-size: 13px;
-		}
-		.form-signin .form-control {
-		  position: relative;
-		  height: auto;
-		  -webkit-box-sizing: border-box;
-		     -moz-box-sizing: border-box;
-		          box-sizing: border-box;
-		  padding: 10px;
-		  font-size: 16px;
-		}
-		.form-signin .form-control:focus {
-		  z-index: 2;
-		}
-		.form-signin input[type="email"] {
-		  margin-bottom: -1px;
-		  border-bottom-right-radius: 0;
-		  border-bottom-left-radius: 0;
-		}
-		.form-signin input[type="password"] {
-		  margin-bottom: 10px;
-		  border-top-left-radius: 0;
-		  border-top-right-radius: 0;
-		}
-	</style>
-	
 	
 </head>
 <body>
@@ -108,7 +48,9 @@
 		</div>
 		<div class="head-nav">
 			<ul>
-				<li class="active"><a href="index.html#home" class="scroll">Home</a></li>	
+				<li class="active"><a href="index.html#home" class="scroll">Home</a></li>
+				<li><a class="scroll">Sign out</a></li>
+				
 			</ul>
 		</div>
 		<div class="clear"> </div>
@@ -116,30 +58,62 @@
 	<!---//End-header---->
 	</div>
 	
-	<!---login----->
+	<!---start-image-banner---->
 	<div class="dash">
-		<div class="container">
-	
-	      <form class="form-signin">
-	        <h2 class="form-signin-heading">Please sign in</h2>
-	        <label for="inputEmail" class="sr-only">Email address</label>
-	        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-	        <label for="inputPassword" class="sr-only">Password</label>
-	        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-	        <div class="forget">
-	          <label>
-	            <a>Forget password ?</a>
-	          </label>
-	        </div>
-	        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-	      </form>
-	
-	    </div>
-    </div>
-	<!---//End-ilogin---->
+		<div class="navbar">
+			<ul class="menu">
+				<li class="fixed">
+					<a>
+						<span class="text">User Dashboard</span>
+					</a>
+				</li>
+				<li id="myPosts">
+					<a href="myPosts.html">
+						<i class="fa fa-files-o fw"></i>
+						<span class="text">My Posts</span>
+					</a>
+				</li>
+				<li id="myElements">
+					<a href="myElements.html">
+						<i class="fa fa-tags"></i>
+						<span class="text">My Products</span>
+					</a>
+				</li>
+				<li id="newPost">
+					<a href="newPost.html">
+						<i class="fa fa-pencil-square-o fw"></i>
+						<span class="text">New Post</span>
+					</a>
+				</li>
+				<li id="newElement">
+					<a href="newElement.html" >
+						<i class="fa fa-pencil-square-o"></i>
+						<span class="text">New Product</span>
+					</a>
+				</li>
+				<li id="profile" class="active">
+					<a>
+						<i class="fa fa-user"></i>
+						<span class="text">Vendor Profile</span>
+					</a>
+				</li>
+			</ul>
+
+		</div>
+		<div class="content">
+			
+			<form id="postForm">
+				Vendor Profile
+			</form>	
+			
+					
+		</div>
+		<div class="clear"> </div>
+	</div>
+	<!---//End-image-banner---->
 	
 	<!---start-footer----->
-	<div class="footer footer-login">
+	<div class="footer-dash">
 		<div class="wrap">
 
 				<div class="footer-left">
@@ -188,19 +162,16 @@
 			 	</div>
 	         	<div class="clear"></div>
 
-        	<div class="copy copy-dash">
-				<p>&copy; 2014-2015 <a href="index.html"> Dinneract</a></p>
-			</div>
+        	<a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 		</div>
 		<!---//End-wrap---->
-		
-		
-		
 	</div>
 	<!---//End-footer----->
+	<div class="copy copy-dash">
+		<p>&copy; 2014-2015 <a href="index.html"> Dinneract</a></p>
+	</div>
 	
 	
-
 	<!-- Modal -->
 	<div id="terms" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	</div>
@@ -216,56 +187,19 @@
 	
 	<script type="text/javascript">
 		//global variables
-		var domain = "http://54.148.158.185:3000/",
-			apiURL = domain + "login";
-		
-					
+	
+	
 		//loading modals
 		$("#privacy").load("inc/privacy.inc"); 
 		$("#terms").load("inc/terms.inc"); 
+
 		
 		
 		$(document).ready(function() {
 			
-			$(".form-signin").submit(function(e) {
-				e.preventDefault();
-				
-				getToken();
-			});
+			
 			
 		});//end of document.ready
-		
-		function getStatus() {
-			//
-		}
-		
-		function getToken() {
-
-			$.ajax({
-				type: "POST",
-				beforeSend: function (request) {
-					// cookie should be generated by browser
-					//document.cookie="connect.sid=xxxx";
-				},
-				url: apiURL,
-				cache: false,
-				crossDomain: true,
-				dataType: 'json',
-						
-				data: {
-	            	email: $("#inputEmail").val(),
-	            	password: $("#inputPassword").val()
-	            },
-
-				success: (function(data) {
-				        	
-					token = data;
-                	alert(JSON.stringify(token));
-                        	
-				})
-			});
-		}
-		
 		
 	</script>
 </body>

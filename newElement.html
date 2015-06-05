@@ -1,0 +1,833 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="apple-touch-icon" sizes="57x57" href="images/icon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/icon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/icon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/icon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/icon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/icon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/icon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/icon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="images/icon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/icon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/icon/favicon-16x16.png">
+	<link rel="manifest" href="images/icon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="images/icon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	
+	<title>Dinneract | Dashboard</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans"/>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome-4.3.0/css/font-awesome.min.css"/>
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-list-filter.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tagsinput.min.js"></script>
+
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	
+	<!-- Cloudinary file upload -->
+	<script type="text/javascript" src="js/cloudinary/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="js/cloudinary/jquery.iframe-transport.js"></script>
+	<script type="text/javascript" src="js/cloudinary/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="js/cloudinary/jquery.cloudinary.js"></script>
+	
+	<style>
+		.display img {
+			float: left;
+		}
+		.display .remove {
+			float: left;
+			margin-right:5px;			
+		}
+	</style>
+</head>
+<body>
+<!---start-wrap---->
+	<!---start-header---->
+	<div class="header">
+	<div class="wrap">
+		<div class="logo">
+			<a href="index.html"><img src="images/comp_logo.png"/></a>
+		</div>
+		<div class="head-nav">
+			<ul>
+				<li class="active"><a href="index.html#home" class="scroll">Home</a></li>
+				<li><a class="scroll">Sign out</a></li>
+				
+			</ul>
+		</div>
+		<div class="clear"> </div>
+	</div>
+	<!---//End-header---->
+	</div>
+	
+	<!---start-image-banner---->
+	<div class="dash">
+		<div class="navbar">
+			<ul class="menu">
+				<li class="fixed">
+					<a>
+						<span class="text">User Dashboard</span>
+					</a>
+				</li>
+				<li id="myPosts">
+					<a href="myPosts.html">
+						<i class="fa fa-files-o fw"></i>
+						<span class="text">My Posts</span>
+					</a>
+				</li>
+				<li id="myElements">
+					<a href="myElements.html">
+						<i class="fa fa-tags"></i>
+						<span class="text">My Products</span>
+					</a>
+				</li>
+				<li id="newPost">
+					<a href="newPost.html">
+						<i class="fa fa-pencil-square-o fw"></i>
+						<span class="text">New Post</span>
+					</a>
+				</li>
+				<li id="newElement" class="active">
+					<a>
+						<i class="fa fa-pencil-square-o"></i>
+						<span class="text">New Product</span>
+					</a>
+				</li>
+				<li id="profile">
+					<a href="profile.html">
+						<i class="fa fa-user"></i>
+						<span class="text">Vendor Profile</span>
+					</a>
+				</li>
+			</ul>
+
+		</div>
+		<div class="content">
+			
+			<form id="postForm">
+				<div role="tabpanel">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist" id="elementTab">
+						<li role="presentation" class="active">
+							<a href="#element_basic" aria-controls="element_basic" title="elementTab" role="tab" data-toggle="tab">Basic Info</a>
+						</li>
+						<li role="presentation">
+							<a href="#element_detail" aria-controls="element_detail" title="elementTab" role="tab" data-toggle="tab">Product Detail</a>
+						</li>
+						<li role="presentation">
+							<a href="#element_cats" aria-controls="element_cats" title="elementTab" role="tab" data-toggle="tab">Categories</a>
+						</li>
+						<li role="presentation">
+							<a href="#element_tags" aria-controls="element_tags" title="elementTab" role="tab" data-toggle="tab">Tags</a>
+						</li>
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active form-horizontal col-sm-11" id="element_basic">
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Product Name</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="name" placeholder="What's the name of this product ?" required/>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Brand Name</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="brand" placeholder="What's the brand of this product ?" required/>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Thumbnail</label>
+							    <div class="col-sm-7">
+							    	<input id="thumb_upload" class="cloudinary_fileupload" type="file" name="file">
+							    </div>
+							    <!--<div class="col-sm-3">
+							    	<div id="thumb_progress_bar" style="backgournd:blue; text-align: center; color: blue;">
+							    		Progress: 0%
+							    	</div>
+							    </div>-->
+							</div>
+							<div class="form-group">
+								<div class="col-sm-3"></div>
+							    <div class="col-sm-7" id="thumb_display">
+
+
+					<div class='display'>
+						<img height='100' src='http://vignette3.wikia.nocookie.net/bloodbrothers2/images/5/56/BB2main.png/revision/latest/scale-to-width/600?cb=20150206041929'/>
+						<i class='fa fa-times remove'></i>
+					</div>
+					
+					<div class='display'>
+						<img height='100' src='http://vignette2.wikia.nocookie.net/bloodbrothers2/images/a/a1/From_The_Ashes_Banner.png/revision/latest/scale-to-width/250?cb=20150522074444'/>
+						<i class='fa fa-times remove'></i>
+					</div>
+					
+					<div class='display'>
+						<img height='100' src='http://vignette3.wikia.nocookie.net/bloodbrothers2/images/4/48/Login_Bonus_May.png/revision/latest/scale-to-width/250?cb=20150502040726'/>
+						<i class='fa fa-times remove'></i>
+					</div>
+
+
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Photos</label>
+							    <div class="col-sm-7">
+							    	<input id="photo_upload" class="cloudinary_fileupload" type="file" name="file">
+							    </div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-3"></div>
+							    <div class="col-sm-7" id="photo_display">
+		
+				    <div class='display'>
+						<img height='100' src='http://vignette3.wikia.nocookie.net/bloodbrothers2/images/5/56/BB2main.png/revision/latest/scale-to-width/600?cb=20150206041929'/>
+						<i class='fa fa-times remove'></i>
+					</div>
+					
+					<div class='display'>
+						<img height='100' src='http://vignette2.wikia.nocookie.net/bloodbrothers2/images/a/a1/From_The_Ashes_Banner.png/revision/latest/scale-to-width/250?cb=20150522074444'/>
+						<i class='fa fa-times remove'></i>
+					</div>
+					
+					<div class='display'>
+						<img height='100' src='http://vignette3.wikia.nocookie.net/bloodbrothers2/images/4/48/Login_Bonus_May.png/revision/latest/scale-to-width/250?cb=20150502040726'/>
+						<i class='fa fa-times remove'></i>
+					</div>
+		
+		
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Price(including Currency symbol)</label>
+							    <div class="col-sm-3">
+							    	<input type="text" class="form-control" name="price_amount" placeholder="Amount, e.g. $3" required/>
+							    </div>
+							    <label class="col-sm-1 control-label" style="font-size: 28px;font-weight: 800; text-align: center; padding-top: 0px;">/</label>
+							    <div class="col-sm-3">
+							    	<input type="text" class="form-control" name="price_unit" placeholder="Unit, e.g. packs" required/>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Buy Link</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="url" placeholder="Where customer can buy this product online ?" required/>
+							    </div>
+							</div>
+							<br/>
+							<div class="form-group" style="text-align: right;">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<a class="btn btn-primary" href="#element_detail" title="elementTab" data-toggle="tab">Next</a>
+							    </div>
+							</div>
+						</div>
+						
+						<div role="tabpanel" class="tab-pane fade form-horizontal col-sm-11" id="element_detail">
+							<div class="form-group">
+							    <div class="col-sm-11" style="text-align: center; margin-bottom: 10px;">
+							    	<h1>Detailed Info</h1>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Introduction</label>
+							    <div class="col-sm-7">
+							    	<textarea class="form-control" name="intro" placeholder="Tell customers about this product, what's the story behind, how special it is." required></textarea>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Ingredients (Optional)</label>
+							    <div class="col-sm-7">
+							    	<textarea class="form-control" name="ingredients" placeholder="Tell customers about what is this product made of."></textarea>
+							    </div>
+							</div>
+							<br/>
+							<div class="form-group">
+							    <div class="col-sm-11" style="text-align: center; margin-bottom: 10px;">
+							    	<h1>Certificates</h1>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">
+								    <span class="fa-stack">
+										<i class="fa fa-circle fa-stack-2x step"></i>
+										<strong class="fa-stack-1x">1</strong>
+									</span>
+								</label>
+							    <div class="col-sm-7">
+							    	<textarea class="form-control" name="certificates" placeholder="Add a certificates, e.g. Organic, Non-GMO, Sugar-free..."></textarea>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">
+								    <span class="fa-stack">
+										<i class="fa fa-circle fa-stack-2x step"></i>
+										<strong class="fa-stack-1x">2</strong>
+									</span>
+								</label>
+							    <div class="col-sm-7">
+							    	<textarea class="form-control" name="certificates" placeholder="Add a certificate"></textarea>
+							    </div>
+							    <div class="col-sm-1">
+							    	<i class="fa fa-times remove" onclick="deleteCertificate(2)"></i>
+							    </div>
+							</div>
+							<div class="form-group" style="text-align: right;">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<a class="add" id="addCertificate">Add Another Certificate</a>
+							    </div>
+							</div>
+							<br/>
+							<div class="form-group" style="text-align: right;">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<a class="btn btn-primary" href="#element_basic" title="elementTab" data-toggle="tab">Previous</a>&nbsp;
+							    	<a class="btn btn-primary" href="#element_cats" title="elementTab" data-toggle="tab">Next</a>
+							    </div>
+							</div>
+						</div>
+						
+						<div role="tabpanel" class="tab-pane fade form-horizontal col-sm-11" id="element_cats">
+							<div class="form-group">
+							    <div class="col-sm-11" style="text-align: center; margin-bottom: 10px;">
+							    	<h1>Categories</h1>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Level 1</label>
+							    <div class="col-sm-7">
+							    	<select class="form-control" id="selectCat1" name="category_1" required>
+							    		<option value="">Please make a selection</option>
+							    		<option>food</option>
+							    		<option>drink</option>
+							    		<option>cookware</option>
+							    		<option>other</option>
+									</select>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Level 2</label>
+							    <div class="col-sm-7">
+							    	<select class="form-control" id="selectCat2" name="category_2" disabled>
+							    		<option value="">Please make a selection</option>
+									</select>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Level 3</label>
+							    <div class="col-sm-7">
+							    	<select class="form-control" id="selectCat3" name="category_3" disabled>
+							    		<option value="">Please make a selection</option>
+									</select>
+							    </div>
+							</div>
+							<br/>
+							<div class="form-group" style="text-align: right;">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<a class="btn btn-primary" href="#element_detail" title="elementTab" data-toggle="tab">Previous</a>&nbsp;
+							    	<a class="btn btn-primary" href="#element_tags" title="elementTab" data-toggle="tab">Next</a>
+							    </div>
+							</div>
+						</div>
+						
+						<div role="tabpanel" class="tab-pane fade form-horizontal col-sm-11" id="element_tags">
+							<div class="form-group">
+								<div class="col-sm-3"></div>
+							    <div class="col-sm-7" style="text-align: center; margin-bottom: 10px;">
+							    	<h1>Tags</h1>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<input class="form-control" name="tags" id="elemTags" value=""  required/>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<span>Note*: click, type tag words and click/tap again to add a new tag</span>
+							    </div>
+							</div>
+							<br/>
+							<div class="form-group" style="text-align: right;">
+							    <div class="col-sm-3"></div>
+							    <div class="col-sm-7">
+							    	<a class="btn btn-primary" href="#element_cats" title="elementTab" data-toggle="tab">Previous</a>&nbsp;
+							    	<button class="btn btn-success" type="submit">Submit</button>
+							    </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>	
+			
+					
+		</div>
+		<div class="clear"> </div>
+	</div>
+	<!---//End-image-banner---->
+	
+	<!---start-footer----->
+	<div class="footer-dash">
+		<div class="wrap">
+
+				<div class="footer-left">
+					<a href="index.html"><img src="images/comp_logo.png" alt="logo"/></a>
+			  	</div>
+				<div class="footer-center">
+					<div class="cssmenu">
+						<ul>
+							<li><a href="#home">App</a></li> 
+							<li><a href="mailto:service@dinneract.com">Contact</a></li>
+							<!--support right now is not a popup -->
+							<!-- <li><a href="#contact">Support</a></li> -->
+							<li><a href="#terms" data-toggle="modal" data-backdrop="static">Terms</a></li> 
+							<li><a href="#privacy" data-toggle="modal" data-backdrop="static">Privacy</a></li> 
+				   		</ul>
+					</div>
+				</div>
+			   	<div class="footer-right">
+						<ul class="list-inline social-buttons">
+	                        <li>
+	                        	<a href="https://twitter.com/DinneractInc" target="_blank" class="tw">
+	                        		<i class="fa fa-twitter" title="Twitter"></i>
+	                        	</a>
+	                        </li>
+	                        <li>
+	                        	<a href="https://www.facebook.com/dinneract" target="_blank" class="fb">
+	                        		<i class="fa fa-facebook" title="Facebook"></i>
+	                        	</a>
+	                        </li>
+	                        <li>
+	                        	<a href="https://www.pinterest.com/dinneract/" target="_blank" class="pin">
+	                        		<i class="fa fa-pinterest-p" title="Pinterest"></i>
+	                        	</a>
+	                        </li>
+	                        <li>
+	                        	<a href="https://instagram.com/dinneract/" target="_blank" class="inst">
+	                        		<i class="fa fa-instagram" title="Instagram"></i>
+	                        	</a>
+	                        </li>
+	                        <!--<li>
+	                        	<a href="https://plus.google.com/u/3/107570138513629378277/posts" target="_blank" class="gplus">
+	                        		<i class="fa fa-google-plus" title="Google+"></i>
+	                        	</a>
+	                        </li>-->
+	                    </ul>
+			 	</div>
+	         	<div class="clear"></div>
+
+        	<a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+		</div>
+		<!---//End-wrap---->
+	</div>
+	<!---//End-footer----->
+	<div class="copy copy-dash">
+		<p>&copy; 2014-2015 <a href="index.html"> Dinneract</a></p>
+	</div>
+	
+	
+	<!-- Modal -->
+	<div id="elementSearch" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Product Search</h4>
+	      </div>
+	      <div class="modal-body">
+			<form role="form">
+			    <div class="form-group">
+			        <input id="searchinput" class="form-control" type="search" placeholder="Search by product name..." />
+			    </div>
+			    <div id="searchlist" class="list-group"></div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+	        <!-- <a type="button" class="btn bind">Bind</a> -->
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div>
+	<!-- End of Modal -->
+	
+	
+	<!-- Modal -->
+	<div id="terms" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	</div>
+	<!-- End of Modal -->	
+	
+	
+	<!-- Modal -->
+	<div id="privacy" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	</div>
+	<!-- End of Modal -->
+
+
+	
+	<script type="text/javascript">
+		//global variables
+		var certNum = 2,
+			domain = "http://54.148.158.185:3000/",
+			apiURL = domain + "elements";
+	
+		//init
+		$.cloudinary.config({ cloud_name: 'dinneract', api_key: '717677974257166' });
+		
+		//loading modals
+		$("#privacy").load("inc/privacy.inc"); 
+		$("#terms").load("inc/terms.inc"); 
+		
+		
+		$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+			var target = $(e.target).attr("href");
+			var ulId = $(e.target).attr("title");
+			
+			$('#' + ulId + ' > li.active').removeClass('active');
+    		$('#' + ulId + ' > li > a[href=' + target + ']').parent().addClass('active');
+		})
+		
+		
+		
+		$(document).ready(function() {
+			
+			$('#elementTab a:first').tab('show');
+			
+			//Element basic
+			
+			$('#thumb_upload').unsigned_cloudinary_upload("wkrbzpyz", 
+				{ cloud_name: 'dinneract', tags: 'element_thumb' }
+			).bind('cloudinarydone', function(e, data) {
+				//see if already uploaded a thumb, if yes delete the old one and upload the new one
+				
+				//$('#thumb_display').html($.cloudinary.image(data.result.url, 
+				//	{ format: 'jpg', height: 100 } 
+				//));
+				
+				$('#thumb_display').html(
+					"<div class='display'>" +
+						"<img height='100' src='" + data.result.url + "'/>" +
+						"<i class='fa fa-times remove'></i>" +
+					"</div>"
+				);
+			});//.bind('cloudinaryprogress', function(e, data) { 
+			//  $('#thumb_progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
+			//});
+			
+			
+			
+			$('#photo_upload').unsigned_cloudinary_upload("pmtswlaj", 
+				{ cloud_name: 'dinneract', tags: 'element_photo' }, 
+				{ multiple: true }
+			).bind('cloudinarydone', function(e, data) {
+				$('#photo_display').append(
+					"<div class='display'>" +
+						"<img height='100' src='" + data.result.url + "'/>" +
+						"<i class='fa fa-times remove'></i>" +
+					"</div>"
+				);
+			});
+			
+			
+			$("div.display i.remove").click(function() {
+				//console.log($(this).parent().attr("class"));
+				$(this).parent().remove();
+			});
+			
+			
+			//Element detail
+			$("#addCertificate").click(function() {
+				addCertificate();
+			});
+			
+			//Element categories
+			var freshOptions = ["beans", "eggs", "fruit", "grains", "meat", "milk", "seafood", "vegetable"],
+				nonFreshOptions = ["baking mix & supplies", "bread", "butter", "cereal", "cheese", "chips & pretzel", "chocolate & candy", "condiments", "cookie & cracker", "deli", "dessert", "frozen/shelf-stable fruits and vegetables", "honey & syrup", "instant food", "jam", "nuts", "nut & seed butter", "oil & vinegar", "pasta", "pickles", "seasonings", "snacks (other)", "yogurt & kefir", "processed meat"],
+				alcoholicOption = ["beer", "cider", "spirits", "wine & champagne"],
+				nonAlcoholicOption = ["coffee & cocoa", "juice", "mixer", "other beverages", "tea", "water"];
+			
+			
+			$("#selectCat1").change(function() {
+				switch( $(this).val() ) {
+					case "":
+					case "cookware":
+					case "other":
+						
+						$("#selectCat2").html('<option value="">Please make a selection</option>');
+						$("#selectCat3").html('<option value="">Please make a selection</option>');
+						
+						$("#selectCat2").prop('disabled', true);
+						$("#selectCat3").prop('disabled', true);
+					
+						break;
+					
+					
+					case "food":
+						$("#selectCat2").html('<option value="">Please make a selection</option><option>fresh</option><option>non-fresh</option>');
+						$("#selectCat2").prop('disabled', false);
+						$("#selectCat3").html('<option value="">Please make a selection</option>');
+						$("#selectCat3").prop('disabled', true);
+						
+						break;
+						
+					
+					case "drink":
+						$("#selectCat2").html('<option value="">Please make a selection</option><option>alcoholic</option><option>non-alcoholic</option>');
+						$("#selectCat2").prop('disabled', false);
+						$("#selectCat3").html('<option value="">Please make a selection</option>');
+						$("#selectCat3").prop('disabled', true);
+						
+						break;
+				}
+
+			});
+
+			$("#selectCat2").change(function() {
+				if( $(this).val() != "" ) {
+					var options = [],
+						optionsHtml = "";
+					switch( $(this).val() ) {
+						case "fresh":
+							options = freshOptions;
+							break;
+						case "non-fresh":
+							options = nonFreshOptions;
+							break;
+						case "alcoholic":
+							options = alcoholicOption;
+							break;
+						case "non-alcoholic":
+							options = nonAlcoholicOption;
+							break;
+					}
+					
+					$.each( options, function( i, option ) {
+				        optionsHtml += "<option>" + option + "</option>";
+				    });
+					
+					optionsHtml = '<option value="">Please make a selection</option>' + optionsHtml;
+					
+					$("#selectCat3").html(optionsHtml);
+					$("#selectCat3").prop('disabled', false);
+				} else {
+					$("#selectCat3").html('<option value="">Please make a selection</option>');
+					$("#selectCat3").prop('disabled', true);
+				}
+			});
+			
+			//Post categories & tags
+			$('#elemTags').tagsInput({
+   				'defaultText':'add a tag',
+   				'height':'120px',
+				'width':'100%'
+			});
+			
+			
+			//submit
+			$('#postForm').submit(function(e) {
+				e.preventDefault();
+				
+				var json = new Object();
+				
+				//name
+				json.name = "";
+				if( $("input[name=name]").val().length < 8 ) {
+					return alert("Error: product name is less than 8 characters!");
+				} else {
+					json.name = $("input[name=name]").val();
+				}
+				
+				//brand
+				json.brand = "";
+				if( $("input[name=brand]").val().length < 1 ) {
+					return alert("Error: please enter the brand name of the product!");
+				} else {
+					json.brand = $("input[name=brand]").val();
+				}
+				
+				//price
+				json.price = new Object();
+				if( !isIntOrFloat( $("input[name=price_amount]").val() ) ) {
+					return alert("Error: please enter the price of the product!");
+				} else {
+					json.price.amount = $("input[name=price_amount]").val();
+				}
+				if( $("input[name=price_unit]").val().length < 1 ) {
+					json.price.unit = "EACH";
+				} else {
+					json.price.unit = $("input[name=price_unit]").val();
+				}
+				
+				//thumb
+				json.thumb = "";
+				$("#thumb_display").children("div.display").each(function () {
+				    json.thumb = $(this).find("img").attr("src");
+				});
+				
+				//photos
+				json.photos = [];
+				$("#photo_display").children("div.display").each(function () {
+				    json.photos.push( $(this).find("img").attr("src") ); 
+				});
+				
+				//purchase url
+				json.url = "";
+				if( $("input[name=url]").val().length < 1 ) {
+					return alert("Error: please enter the buy link of the product!");
+				} else {
+					json.url = $("input[name=url]").val();
+				}
+				
+				//intro
+				json.intro = "";
+				if( $("textarea[name=intro]").val().length < 1 ) {
+					return alert("Error: please enter the introduction of the product!");
+				} else {
+					json.intro = $("textarea[name=intro]").val();
+				}
+				
+				//ingredients
+				json.ingredients = "";
+				if( $("textarea[name=ingredients]").val().length > 0 ) {
+					json.ingredients = $("textarea[name=ingredients]").val();
+				}
+				
+				//certificates
+				json.certificates = [];
+				$("textarea[name=certificates]").each(function() {
+					if( $(this).val().length > 0 ) {
+						json.certificates.push( $(this).val() );
+					}
+				});
+				
+				//category_1
+				json.category_1 = "";
+				if( $("select[name=category_1]").val().length < 1 ) {
+					return alert("Error: please select the level 1 category of the product!");
+				} else {
+					json.category_1 = $("select[name=category_1]").val();
+				}
+				
+				//category_2
+				json.category_2 = "";
+				if( $("select[name=category_1]").val().length > 0 ) {
+					json.category_2 = $("select[name=category_2]").val();
+				}
+				
+				//category_3
+				json.category_3 = "";
+				if( $("select[name=category_1]").val().length > 0 ) {
+					json.category_3 = $("select[name=category_3]").val();
+				}
+				
+				//tags
+				json.tags = [];
+				if( $("input[name=tags]").val().length < 1 ) {
+					return alert("Error: please enter at least one tag for the product!");
+				} else {
+					json.tags = $("input[name=tags]").val().split(",");
+				}
+				
+			
+				submitForm( JSON.stringify(json) );
+			});
+			
+			
+		});//end of document.ready
+		
+		function submitForm(jsonStr) {
+		
+			$.ajax({
+				type: "POST",      
+				url: apiURL,
+				cache: false,
+				crossDomain: true,
+				dataType: 'text', //'json'
+				
+				beforeSend: (function() {
+					//$('#loading').show();
+				}),	
+				
+				success: (function( data, textStatus, jqXHR ) {
+					//$('#loading').hide();
+					if(jqXHR.status == 200) {
+						alert( "Your product has been successfully added to Dinneract database." );
+					} else {
+						alert( data );
+					}
+				   
+				}),
+				
+				error: (function( jqXHR, textStatus ) {
+					alert( "Request failed: " + jqXHR.responseText );
+				})
+			});
+		}
+		
+		
+		
+		function addCertificate() {
+			//1st certificate is the 5th child
+			certNum++;
+				
+			var newCert = "" + 
+				"<div class=\"form-group\">" + 
+					"<label class=\"col-sm-3 control-label\">" + 
+						"<span class=\"fa-stack\">" + 
+							"<i class=\"fa fa-circle fa-stack-2x step\"></i>" + 
+							"<strong class=\"fa-stack-1x\">" + certNum + "</strong>" +
+						"</span>" + 
+					"</label>" +
+					"<div class=\"col-sm-7\">" + 
+						"<textarea class=\"form-control\" name=\"certificates\" placeholder=\"Add a certificate\"></textarea>" +
+					"</div>" + 
+					"<div class=\"col-sm-1\">" +
+						"<i class=\"fa fa-times remove\" onclick=\"deleteCertificate(" + certNum + ")\"></i>" +
+					"</div>" +
+				"</div>";
+				
+			$("#element_detail > div.form-group:nth-child(" + (4+certNum) + ")").after( newCert );
+		}
+		
+		function deleteCertificate(order) {
+			//1st certificate is the 5th child
+			var currentStep;
+			$("#element_detail div.form-group:nth-child(" + (5+order) + ")").remove();
+			certNum--;
+			for(var i=order; i<=certNum; i++) {
+				currentStep = $("#element_detail > div.form-group:nth-child(" + (i+5) + ")");
+				currentStep.find("strong").html(i);
+				currentStep.find("i.remove").attr("onclick", "deleteCertificate("+i+")");
+			}
+		}
+		
+		function isIntOrFloat(input) {
+			var inputNum = Number(input);
+			if(inputNum | 0 == inputNum) { /* int */
+				return true;
+			} else if (!isNaN(inputNum)) { /* float */
+				return true;
+			} else { /* not a number */
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>
