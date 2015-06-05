@@ -546,10 +546,11 @@
 			});
 			
 			
-			$("div.display i.remove").click(function() {
+			$(document).on('click', 'div.display i.remove', function() {
 				//console.log($(this).parent().attr("class"));
 				$(this).parent().remove();
 			});
+			
 			
 			
 			//Element detail

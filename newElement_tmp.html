@@ -131,12 +131,26 @@
 							    	<input type="text" class="form-control" name="brand" placeholder="What's the brand of this product ?" required/>
 							    </div>
 							</div>
+							<hr/>
 							<div class="form-group">
 							    <label class="col-sm-3 control-label">Vendor Name</label>
 							    <div class="col-sm-7">
-							    	<input type="text" class="form-control" name="vendor" placeholder="Who is selling this product ?" required/>
+							    	<input type="text" class="form-control" name="vendor_name" placeholder="Who is selling this product ?" required/>
 							    </div>
 							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Vendor Location</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="vendor_location" placeholder="i.e. San Jose, CA" required/>
+							    </div>
+							</div>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Vendor Website</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="vendor_website" placeholder="i.e. www.amazon.com" required/>
+							    </div>
+							</div>
+							<hr/>
 							<div class="form-group">
 							    <label class="col-sm-3 control-label">Thumbnail</label>
 							    <div class="col-sm-7">
@@ -525,10 +539,11 @@
 			});
 			
 			
-			$("div.display i.remove").click(function() {
+			$(document).on('click', 'div.display i.remove', function() {
 				//console.log($(this).parent().attr("class"));
 				$(this).parent().remove();
 			});
+			
 			
 			
 			//Element detail
@@ -642,11 +657,23 @@
 				}
 				
 				//vendor --- tmp use
-				json.vendor = "";
-				if( $("input[name=vendor]").val().length < 1 ) {
+				json.vendor_name = "";
+				if( $("input[name=vendor_name]").val().length < 1 ) {
 					return alert("Error: please enter the vendor name of the product!");
 				} else {
-					json.vendor = $("input[name=vendor]").val();
+					json.vendor_name = $("input[name=vendor_name]").val();
+				}
+				json.vendor_location = "";
+				if( $("input[name=vendor_location]").val().length < 1 ) {
+					return alert("Error: please enter the vendor location of the product!");
+				} else {
+					json.vendor_location = $("input[name=vendor_location]").val();
+				}
+				json.vendor_website = "";
+				if( $("input[name=vendor_website]").val().length < 1 ) {
+					return alert("Error: please enter the vendor website of the product!");
+				} else {
+					json.vendor_website = $("input[name=vendor_website]").val();
 				}
 				
 				//price

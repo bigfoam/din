@@ -43,6 +43,15 @@
 	<script type="text/javascript" src="js/cloudinary/jquery.fileupload.js"></script>
 	<script type="text/javascript" src="js/cloudinary/jquery.cloudinary.js"></script>
 	
+	<style>
+		.display img {
+			float: left;
+		}
+		.display .remove {
+			float: left;
+			margin-right:5px;			
+		}
+	</style>
 </head>
 <body>
 <!---start-wrap---->
@@ -134,12 +143,37 @@
 							    	<input type="text" class="form-control" name="title" placeholder="What's the name of this special food ?">
 							    </div>
 							</div>
+							
 							<div class="form-group">
 							    <label class="col-sm-3 control-label">Photo</label>
 							    <div class="col-sm-7">
-							    	<button>Photo upload</button>
+							    	<input id="photo_upload" class="cloudinary_fileupload" type="file" name="file">
 							    </div>
 							</div>
+							<div class="form-group">
+								<div class="col-sm-3"></div>
+							    <label class="col-sm-7 control-label" style="color: red; font-size: 13px; font-weight: 800; text-align: left;">
+							    	Please first resize to 9:16 (w:h, max width 1080px, max height 1920px)
+							    </label>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-3"></div>
+							    <div class="col-sm-7" id="photo_display">
+		
+							    </div>
+							</div>
+							
+							
+							<hr/>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Vendor Name</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="vendor_name" placeholder="Who is using this post to promote product ?" required/>
+							    </div>
+							</div>
+							<hr/>
+							
+							
 							<div class="form-group">
 							    <label class="col-sm-3 control-label">Credit to (optional)</label>
 							    <div class="col-sm-7">
@@ -642,6 +676,9 @@
 		var domain = "http://54.148.158.185:3000/",
 			searchApiURL = domain + "elements?", //by vendor id
 			submitApiURL = domain + "posts";
+			
+		$.cloudinary.config({ cloud_name: 'dinneract', api_key: '717677974257166' });
+		
 	
 		//loading modals
 		$("#privacy").load("inc/privacy.inc"); 
@@ -663,6 +700,29 @@
 			$('#postTab a:first').tab('show');
 			
 			//Post basic
+			$('#photo_upload').unsigned_cloudinary_upload("eg0wnfhq", 
+				{ cloud_name: 'dinneract', tags: 'post' }
+			).bind('cloudinarydone', function(e, data) {
+				$('#photo_display').html(
+					"<div class='display'>" +
+						"<img height='320' src='" + data.result.url + "'/>" +
+						"<i class='fa fa-times remove'></i>" +
+					"</div>"
+				);
+				
+				/*
+				$("div.display i.remove").on("click", function() {
+					//console.log($(this).parent().attr("class"));
+					$(this).parent().remove();
+				});
+				*/
+			});
+			
+			$(document).on('click', 'div.display i.remove', function() {
+				//console.log($(this).parent().attr("class"));
+				$(this).parent().remove();
+			});
+			
 			
 			//Post steps
 			$("#addPostStep").click(function() {
@@ -762,6 +822,107 @@
 				    });
 				}
 			});
+			
+			
+			
+			
+			//submit
+			$('#postForm').submit(function(e) {
+				e.preventDefault();
+				
+				var json = new Object();
+				
+				//title
+				json.title = "";
+				if( $("input[name=title]").val().length < 8 ) {
+					return alert("Error: Post title is less than 8 characters!");
+				} else {
+					json.title = $("input[name=title]").val();
+				}
+				
+				//thumb
+				json.photo = "";
+				$("#photo_display").children("div.display").each(function () {
+				    json.photo = $(this).find("img").attr("src");
+				});
+				
+				
+				//vendor --- tmp use
+				json.vendor_name = "";
+				if( $("input[name=vendor_name]").val().length < 1 ) {
+					return alert("Error: please enter the vendor name of the product!");
+				} else {
+					json.vendor_name = $("input[name=vendor_name]").val();
+				}
+				
+				
+				//price
+				json.price = new Object();
+				if( !isIntOrFloat( $("input[name=price_amount]").val() ) ) {
+					return alert("Error: please enter the price of the product!");
+				} else {
+					json.price.amount = $("input[name=price_amount]").val();
+				}
+				if( $("input[name=price_unit]").val().length < 1 ) {
+					json.price.unit = "EACH";
+				} else {
+					json.price.unit = $("input[name=price_unit]").val();
+				}
+				
+				
+				
+				
+				//purchase url
+				json.url = "";
+				if( $("input[name=url]").val().length < 1 ) {
+					return alert("Error: please enter the buy link of the product!");
+				} else {
+					json.url = $("input[name=url]").val();
+				}
+				
+				//intro
+				json.intro = "";
+				if( $("textarea[name=intro]").val().length < 1 ) {
+					return alert("Error: please enter the introduction of the product!");
+				} else {
+					json.intro = $("textarea[name=intro]").val();
+				}
+				
+				//ingredients
+				json.ingredients = "";
+				if( $("textarea[name=ingredients]").val().length > 0 ) {
+					json.ingredients = $("textarea[name=ingredients]").val();
+				}
+				
+				//certificates
+				json.certificates = [];
+				$("textarea[name=certificates]").each(function() {
+					if( $(this).val().length > 0 ) {
+						json.certificates.push( $(this).val() );
+					}
+				});
+				
+				//category_1---------------------------
+				json.category_1 = "";
+				if( $("select[name=category_1]").val().length < 1 ) {
+					return alert("Error: please select the level 1 category of the product!");
+				} else {
+					json.category_1 = $("select[name=category_1]").val();
+				}
+				
+				
+				//tags
+				json.tags = [];
+				if( $("input[name=tags]").val().length < 1 ) {
+					return alert("Error: please enter at least one tag for the product!");
+				} else {
+					json.tags = $("input[name=tags]").val().split(",");
+				}
+				
+			
+				//submitForm( JSON.stringify(json) );
+			});
+			
 			
 			
 		});//end of document.ready
