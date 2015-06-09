@@ -82,34 +82,16 @@
 						<span class="text">User Dashboard</span>
 					</a>
 				</li>
-				<li id="myPosts">
-					<a href="myPosts.html">
-						<i class="fa fa-files-o fw"></i>
-						<span class="text">My Posts</span>
-					</a>
-				</li>
-				<li id="myElements">
-					<a href="myElements.html">
-						<i class="fa fa-tags"></i>
-						<span class="text">My Products</span>
-					</a>
-				</li>
 				<li id="newPost" class="active">
 					<a>
 						<i class="fa fa-pencil-square-o fw"></i>
-						<span class="text">New Post</span>
+						<span class="text">New Post - Temp</span>
 					</a>
 				</li>
 				<li id="newElement">
-					<a href="newElement.html" >
+					<a href="newElement_tmp.html">
 						<i class="fa fa-pencil-square-o"></i>
-						<span class="text">New Product</span>
-					</a>
-				</li>
-				<li id="profile">
-					<a href="profile.html">
-						<i class="fa fa-user"></i>
-						<span class="text">Vendor Profile</span>
+						<span class="text">New Product - Temp</span>
 					</a>
 				</li>
 			</ul>
@@ -162,8 +144,18 @@
 		
 							    </div>
 							</div>
-
-				
+							
+							
+							<hr/>
+							<div class="form-group">
+							    <label class="col-sm-3 control-label">Vendor Name</label>
+							    <div class="col-sm-7">
+							    	<input type="text" class="form-control" name="vendor_name" placeholder="Who is using this post to promote product ?" required/>
+							    </div>
+							</div>
+							<hr/>
+							
+							
 							<div class="form-group">
 							    <label class="col-sm-3 control-label">Credit to (optional)</label>
 							    <div class="col-sm-7">
@@ -461,7 +453,7 @@
 							    </div>
 							</div>
 							<div class="form-group">
-							    <label class="col-sm-3 control-label">Occasions</label>
+							    <label class="col-sm-3 control-label">Occasions (Optional)</label>
 							    <div class="col-sm-6">
 							    	<select class="form-control" id="selectPostOccasion">
 							    		<option>Christmas</option>
@@ -486,7 +478,7 @@
 							    </div>
 							</div>
 							<div class="form-group">
-							    <label class="col-sm-3 control-label">Specials</label>
+							    <label class="col-sm-3 control-label">Specials (Optional)</label>
 							    <div class="col-sm-6">
 							    	<select class="form-control" id="selectPostSpecial">
 							    		<option>Gluten-free</option>
@@ -636,12 +628,14 @@
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	        <h4 class="modal-title">Product Search</h4>
 	      </div>
-	      <div class="modal-body">
+	      <div class="modal-body" style="height:400px; overflow-y: auto;">
 			<form role="form">
 			    <div class="form-group">
-			        <input id="searchinput" class="form-control" type="search" placeholder="Search by product name..." />
+			        <input id="searchInput" class="form-control" type="search" placeholder="Search by product name/keyword..." style="width: 84%; float:left;" />
+					<button id="searchBtn" class="btn btn-primary" style="width: 16%; float:right;">Search</button>		    
 			    </div>
-			    <div id="searchlist" class="list-group"></div>
+			    <br/>
+			    <div id="searchlist" class="list-group" style="width: 100%; float:left; margin-top:10px;"></div>
 			</form>
 	      </div>
 	      <div class="modal-footer">
@@ -666,6 +660,28 @@
 	<!-- End of Modal -->
 
 
+
+	<!-- Modal -->
+	<div id="tmpReturn" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	 <div class="modal-dialog" style="width: 960px; height: 600px;">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	      	
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4>Copy and paste in your doc</h4>
+	      </div>
+	      <div class="modal-body" style="overflow-y: auto; height: 500px;">
+			
+	      </div>
+	      <div class="modal-footer">
+	        <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div>
+	<!-- End of Modal -->
+	
+	
 	
 	<script type="text/javascript">
 		//global variables
@@ -675,7 +691,7 @@
 		
 		//init
 		var domain = "http://54.148.158.185:3000/",
-			searchApiURL = domain + "elements?", //by vendor id
+			searchApiURL = domain + "elements?contains=", //by vendor id
 			submitApiURL = domain + "posts";
 			
 		$.cloudinary.config({ cloud_name: 'dinneract', api_key: '717677974257166' });
@@ -787,8 +803,10 @@
 			
 			
 			//---element search
-			$('#elementSearch').on('shown.bs.modal', function () {
-				if( $("#searchlist").html() == "" ) {
+			$('#searchBtn').click(function (e) {
+				e.preventDefault();
+				
+				if( $("#searchInput").val().length > 2 ) {
 					
 					$.ajax({
 				   		type: "GET",
@@ -796,7 +814,7 @@
 				        	// cookie should be generated by browser
 				        	//document.cookie="connect.sid=xxxx";
 				        },
-				        url: searchApiURL,
+				        url: searchApiURL + $("#searchInput").val(),
 				        cache: false,
 						crossDomain: true,
 						dataType: 'json',
@@ -810,7 +828,7 @@
 				        	});
 				        	
 				        	$("#searchlist").html( elements );
-				        	$('#searchlist').btsListFilter( '#searchinput', {itemChild: 'span'} );
+				        	$('#searchlist').btsListFilter( '#searchInput', {itemChild: 'span'} );
 				        	
 				        	$('.elemSearchTab').click(function(){
 								//set binded element id
@@ -818,9 +836,11 @@
 								$("input[name=element_name_" + currentElem + "]").val( $(this).find("span").html() );
 								$('#elementSearch').modal("hide");
 							});
-				        	//$('#searchinput').focus();
+				        	//$('#searchInput').focus();
 				        })
 				    });
+				} else {
+					alert("Warning: search keyword needs to be at least 3 characters!");
 				}
 			});
 			
@@ -846,6 +866,15 @@
 				$("#photo_display").children("div.display").each(function () {
 				    json.photo = $(this).find("img").attr("src");
 				});
+				
+				
+				//vendor --- tmp use
+				json.vendor_name = "";
+				if( $("input[name=vendor_name]").val().length < 1 ) {
+					return alert("Error: please enter the vendor name of the product!");
+				} else {
+					json.vendor_name = $("input[name=vendor_name]").val();
+				}
 				
 				
 				//creditTo (Optional)
@@ -926,24 +955,23 @@
 				}
 				
 				//occasions
-				json.occasions = [];
-				if( $("input[name=occasions]").val().length < 1 ) {
-					return alert("Error: please enter at least one occasion of the post!");
-				} else {
+				//json.occasions = [];
+				//if( $("input[name=occasions]").val().length < 1 ) {
+				//	return alert("Error: please enter at least one occasion of the post!");
+				//} else {
 					json.occasions = $("input[name=occasions]").val().split(",");
-				}
+				//}
 				
 				//specials
-				json.specials = [];
-				if( $("input[name=specials]").val().length < 1 ) {
-					return alert("Error: please enter at least one speciality of the post!");
-				} else {
+				//json.specials = [];
+				//if( $("input[name=specials]").val().length < 1 ) {
+				//	return alert("Error: please enter at least one speciality of the post!");
+				//} else {
 					json.specials = $("input[name=specials]").val().split(",");
-				}
+				//}
 				
 				//origins
 				json.origins = $("select[name=origins]").val();
-				
 				
 				
 				//tags
@@ -956,7 +984,8 @@
 				
 			
 				//submitForm( JSON.stringify(json) );
-				alert( JSON.stringify(json) );
+				$("#tmpReturn .modal-body").html( JSON.stringify(json) );
+				$("#tmpReturn").modal('show');
 			});
 			
 			
