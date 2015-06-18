@@ -1342,10 +1342,12 @@ ul.social-buttons li a:focus {
 	right: -24px;
 	background: #FFF;
 	height: 48px;
+	width: 48px;
 	line-height: 48px;
 	vertical-align: middle;
+	text-align: center;
 	/* font-family: sans-serif; */
-	font-size: 13px;
+	font-size: 12px;
 	padding: 4px;
 	-webkit-border-radius: 22px;
 	-moz-border-radius: 22px;

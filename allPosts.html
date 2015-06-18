@@ -41,24 +41,162 @@
     <script type="text/javascript" src="js/jquery.infinitescroll.min.js"></script>
 	
 	<style>
+		.main {
+			background-color: orange;/*F5F5F5*/
+			text-align: center;
+			float: none;
+		}
+		
+		.main .content {
+			float: none;
+			width: 1100px;
+			/*padding-left: 150px;
+			padding-right: 100px;*/
+			text-align: center;
+		}
+		
 		.post { 
 			width: 240px;
+			height: 424px;
 			margin: 10px;
-			float: left;
+			position: relative;
+			
 		}
 		
-		.post label {
+		.like {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			height: 50px;
+			width: 48px;
+			z-index: 2;
+		}
+		
+		.unlike,
+		.liked {
+			position: relative;
+			top: 0px;
+			right: 0px;
+			height: 44px;
+			width: 42px;
+			background-repeat: no-repeat;
+			background-position: center top;
+			cursor: pointer;
+		}
+		
+		.post .img-container {
+			position: absolute;
+			top: 0;
+			left: 0;
 			width: 240px;
-			padding: 2px 16px 2px 16px;
-			opacity: 0.8;
-			margin-bottom: -5px;
+			height: 340px;
+			overflow-y: hidden;
+			z-index: 1;
+			
+			-webkit-border-top-right-radius: 8px;
+			-webkit-border-top-left-radius: 8px;
+			-moz-border-radius-topright: 8px;
+			-moz-border-radius-topleft: 8px;
+			border-top-right-radius: 8px;
+			border-top-left-radius: 8px;
 		}
 		
-		.post a img {
-			display: block;
+		.post .img-container img {
+			margin-top: -30px;
 			width: 100%;
 		}
 	
+		.post .title {
+			position: absolute;
+			top: 280px;
+			left: 0;
+			width: 240px;
+			height: 56px;
+			padding: 6px 16px;
+			background-color: #333;
+			color: #fff;
+			/*font-family: Consolas, "Liberation Mono", "Nimbus Mono L", "Andale Mono", "Courier New", monospace;*/ /* "Lucida Console", Monaco, monospace; */
+			font-size: 16px;
+			font-weight: 600;
+			z-index: 2;
+		}
+		
+		.post .promote {
+			position: absolute;
+			top: 340px;
+			left: 0;
+			width: 240px;
+			height: 40px;
+			padding: 4px 16px;
+			background-color: #333;
+			color: #fff;
+			font-size: 13px;
+			overflow-y: hidden;
+			z-index: 2;
+			
+		}
+		
+		.promote .tag {
+			float: left;
+		}
+		
+		.promote .tag img {
+			height: 32px;
+			width: 32px;
+		}
+		
+		.promote .name {
+			float: left;
+			width: 160px;
+			padding-top: 0px;
+			padding-left: 16px;
+		}
+		
+		.post .author {
+			position: absolute;
+			top: 376px;
+			left: 0;
+			width: 240px;
+			height: 48px;
+			padding: 4px 16px 4px;
+			color: #333;
+			font-size: 12px;
+			
+			-webkit-border-bottom-right-radius: 8px;
+			-webkit-border-bottom-left-radius: 8px;
+			-moz-border-radius-bottomright: 8px;
+			-moz-border-radius-bottomleft: 8px;
+			border-bottom-right-radius: 8px;
+			border-bottom-left-radius: 8px;
+			
+			background: #fff;
+			z-index: 1;
+			
+		}
+		
+		.author hr {
+			margin-top: 0px;
+			margin-bottom: 4px;
+		}
+		
+		.author .thumb {
+			float: left;
+		}
+		
+		.author .thumb img{
+			height: 36px;
+			width: 36px;
+		}
+		
+		.author .name {
+			float: right;
+			padding-top: 10px;			
+		}
+		
+		.author .name span {
+			font-size: 12px;			
+		}
+		
 		
 		#loading {
 			text-align: center;
@@ -85,8 +223,8 @@
 	</div>
 	
 	<!---start-image-banner---->
-	<div class="dash" style="text-align: center; float: none;">
-		<div class="content" style="float: none; width: 1100px;">
+	<div class="dash main">
+		<div class="content">
 			
 			<div class="row" id="loading">
          		<img src="images/loading-cup.gif" style="display: hidden;"/>
@@ -95,8 +233,7 @@
 			<div class="row" id="post-images">
          
         	</div>
-			
-			<button id="loadMore">Load More</button>		
+				
 		</div>
 		<div class="clear"> </div>
 
@@ -192,12 +329,38 @@
 			
 			loadPosts( 0 );
 			
-			
-			$("#loadMore").click(function() {	
-				loadPosts( pageLoadedNum * postsPerPage );
-				pageLoadedNum++;
+			$(window).scroll(function () { 
+				if ($(window).scrollTop() >= $(document).height() - $(window).height() - 0) {
+					loadPosts( pageLoadedNum * postsPerPage );
+					pageLoadedNum++;
+				}
 			});
 			
+			/*
+			$(".content .row").on("mouseenter", ".post", function() {
+			    $(this).find(".like").show();
+			    $(this).find(".title").animate({
+				    top: "-=100"
+				}, 200);
+			    $(this).find(".promote").animate({
+				    top: "-=100",
+				    height: "+=100"
+				}, 200);
+			});
+			
+			$(".content .row").on("mouseleave", ".post", function() {
+			    $(this).find(".like").hide();
+			    $(this).find(".title").animate({
+				    top: "+=100"
+				}, 200);
+			    $(this).find(".promote").animate({
+				    top: "+=100",
+				    height: "-=100"
+				}, 200);
+			});
+			*/
+    
+    
 		});//end of document.ready
 		
 		
@@ -262,15 +425,86 @@
 		
 		
 		function createPost(post) {
+			
+			//console.log(post.title + " -- " + post.elements.length);
+			
+			var promoteName,
+				postTime = new Date(post.createdAt),
+				postDate = postTime.getFullYear() + "/" + postTime.getMonth() + "/" + postTime.getDay();
+			
+			if(post.elements.length > 0) {
+				promoteName = post.elements[0].name;
+			} else {
+				promoteName = "<b color='red'>NULL</b>";
+			}
 				
 			var template = $("<div class=\"post\"></div>")
-				//.append("<div class=\"like\"></div>")
-				.append("<a><img src=\"" + post.photo + "\" alt=\"\" class=\"img-rounded\"></a>")
-				.append("<label>" + post.title + "</label>");
+				.append(
+					$("<div class=\"like\"></div>").append(
+						checkIfLiked("post", post._id) === false ? "<div class=\"unlike\"></div>" : "<div class=\"liked\"></div><span class=\"like_num\">" + likeNumFormat(post.likes) + "</span></div>"
+					)
+				)
+				.append("<div class=\"img-container\"><img src=\"" + post.photo + "\" alt=\"\" class=\"img-rounded\"></div>")
+				//.append("<div class=\"title\">" + post.title + "</div>")
+				.append($("<div class=\"promote\"></div>").append(
+						"<div class=\"tag\"><img src=\"" + "images/price_tag.png" + "\"/></div>"
+					).append(
+						"<div class=\"name\">" + promoteName + "</div>"
+					)
+				)
+				.append(
+					$("<div class=\"author\"><hr/></div>").append(
+						"<div class=\"thumb\"><img src=\"" + "images/foodie.png" + "\"/></div>"
+					).append(
+						"<div class=\"name\"><span>" + "vendor name" + "</span></div>"
+					)
+				);
 			
 			//console.log($(template).html());
 			
 			return template;				 
+		}
+		
+		function checkIfLiked(category, id) {
+			//console.log(id);	
+			if(Math.random() > 0.5) {
+				return true;
+			} else {
+				return false;
+			}
+					
+		}
+		
+		
+		function likeNumFormat(num) {
+			num = parseInt( Math.random() * 1e5 );
+			
+			if(num < 1e3) {
+				return num;
+			} else if(num < 1e6) {
+				if(num < 1e5) {
+					return (num/1e3).toPrecision(2) + 'k';
+				} else {
+					return (num/1e3).toPrecision(3) + 'k';
+				}
+			} else if(num < 1e9) {
+				if(num < 1e8) {
+					return (num/1e6).toPrecision(2) + 'm';
+				} else {
+					return (num/1e6).toPrecision(3) + 'm';
+				}
+			} else {
+				return ">1b";
+			}
+		}
+		
+		
+		function titleFormat(title) {
+			
+		//	var formatTitle,
+		//		lineWidth = ,//remove padding
+		//		charWidth = ,//related to font-size
+			
 		}
 		
 	</script>
